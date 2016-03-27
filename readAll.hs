@@ -28,7 +28,6 @@ iterations = fmap length getList
 doall :: IO [FilePath] -> IO [String]
 doall x = if  then return else (doit 0)
 
-
 tellTruth :: IO (Bool) -> Bool
 tellTruth a = if (fmap (== 0) (fmap length x))
 -}
@@ -56,18 +55,21 @@ getElem m = correctPath $ fmap (!! m) getList
 data Stat = EndStat | Full Int Int Stat deriving (Show, Eq)
 data InvInd = EndInd | Entry String Stat InvInd deriving (Show)
 
-addDoc ::  InvInd -> [String] -> InvInd
-addDoc x [] = x
-addDoc  z (x:xs)= addDoc (addPosting 1 z x) xs 
 
 
+-- InvertedIndex -> DocumentID -> List of words -> NewInverted Index
+addDoc ::  InvInd -> Int -> [String] -> InvInd
+addDoc x _ [] = x
+addDoc z y (x:xs)= addDoc (addPosting y z x) y xs
+
+
+-- Document ID -> Orig Inverted Index -> Word -> new InvertedIndex
 addPosting :: Int -> InvInd -> String -> InvInd
 addPosting y EndInd x = (Entry x (Full y 1 EndStat) EndInd)
 addPosting y (Entry inDicString (Full docID docFreq rest) restInd) x = 
 					if x == inDicString 
 					then (Entry inDicString (Full docID (docFreq+1) rest) restInd)
 					else (Entry inDicString (Full docID (docFreq) rest) (addPosting y restInd x ))
-
 
 
 findPostings :: String -> InvInd -> Stat
