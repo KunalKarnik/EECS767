@@ -165,7 +165,9 @@
   (/ (log n) (log 10)))
 
 (define (idf word)
-  (log10 (/ (length universe) (stat-docFreq (get-stat word)))))
+  (if (equal? 0 (log10 (/ (length universe) (stat-docFreq (get-stat word)))))
+      0.00001
+      (log10 (/ (length universe) (stat-docFreq (get-stat word))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Vectorization of Docs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define vectors (make-hash))
