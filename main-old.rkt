@@ -99,20 +99,17 @@
   (mtStat)
   (stat (docFreq number?) (termFreq number?) (postings hash?)))
 
-(define-type Tf-Posit
-  (noPos)
-  (tf-pos-list (doc-term-freq number?) (positions list?)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;; Dictionary - Build and Operations ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define dictionary (make-hash))
 
-(define (hash word doc posit)
+(define (hash word doc)
   (if (equal? (hash-ref dictionary word [(lambda ()#f)]) #f)
 
       ;The word is not in the dict. Create a fresh record
       (begin (hash-set! dictionary word (stat 1 1 (make-hash)))
              ;fetch hashtable of the new word and record document
-             (hash-set! (stat-postings (get-stat word)) doc (tf-pos-list 1 (list posit))))
+             (hash-set! (stat-postings (get-stat word)) doc 1))
 
       
       ;The word is in the dictionary, just edit its stats
@@ -122,22 +119,14 @@
             ;Increase DF for the term by 1, Increase Overall TF by 1
             (hash-set! dictionary word (stat (+ 1 (stat-docFreq (get-stat word))) (+ 1 (stat-termFreq (get-stat word))) (stat-postings (get-stat word))))
 
-            ;Add a new entry into the postings, include position into the Tf-posit
-            (hash-set! (stat-postings (get-stat word)) doc (tf-pos-list 1 (list posit))))
+            ;Add a new entry into the postings
+            (hash-set! (stat-postings (get-stat word)) doc 1))
 
             
           ;Same Document - This document already exists in the postings of the term
           (begin 
              ;Increase TF for the current doc by 1
-             (hash-set! (stat-postings (get-stat word)) doc
-
-                        (tf-pos-list
-                          ;Add one to the total document-term-freq & cons the position on to the current position list
-                         (+ 1 (tf-pos-list-doc-term-freq (hash-ref (stat-postings (get-stat word)) doc)))
-                         (cons posit (tf-pos-list-positions (hash-ref (stat-postings (get-stat word)) doc)))
-                        ))
-
-             ;(tf-pos-list (doc-term-freq number?) (positions list?)))
+             (hash-set! (stat-postings (get-stat word)) doc (+ 1 (hash-ref (stat-postings (get-stat word)) doc)))
              
              ;Increase Overall TF by 1
              (hash-set! dictionary word (stat (stat-docFreq (get-stat word)) (+ 1 (stat-termFreq (get-stat word))) (stat-postings (get-stat word))))))))
@@ -146,11 +135,11 @@
 (define (get-stat word)
   (hash-ref dictionary word ))
 
-(define (hash-doc xs doc-id posit)
+(define (hash-doc xs doc-id)
   (cond
     [(null? xs) #t]
-    [(or (equal? (string-length (car xs)) 0) (> (string-length (car xs)) 27)) (hash-doc (cdr xs) doc-id posit)]
-    [else (begin (hash (car xs) doc-id posit) (hash-doc (cdr xs) doc-id (+ 1 posit)))]))
+    [(or (equal? (string-length (car xs)) 0) (> (string-length (car xs)) 27)) (hash-doc (cdr xs) doc-id)]
+    [else (begin (hash (car xs) doc-id) (hash-doc (cdr xs) doc-id))]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Filesystem -> Scheme ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define all-files (map path->string (directory-list "data/")))
@@ -176,7 +165,7 @@
   (cond
     [(null? list-docs) "Document indexing completed"]
     [else (begin
-            (hash-doc (car list-docs) doc-id 1) ;The last '1' is the starting position for hash-doc
+            (hash-doc (car list-docs) doc-id)
             (hash-up (+ 1 doc-id) (cdr list-docs)))]
     ))
 
@@ -213,7 +202,7 @@
          (cons
           (*
            (idf (car all-terms)) ; IDF of this term
-           (tf-pos-list-doc-term-freq (hash-ref (stat-postings (get-stat (car all-terms))) cur-doc)));TF of this term in this doc
+           (hash-ref (stat-postings (get-stat (car all-terms))) cur-doc));TF of this term in this doc
           (make-vector (cdr all-terms) cur-doc)) ;Recurse on the rest of the list
 
          ; Posting of this term DOESN't contain current docuemnt. Weight is 0
@@ -380,36 +369,7 @@
     [else
      (cons (a-rec start (car sim)) (make-sim-list (cdr sim) (+ 1 start)))]))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; TERM PROXIMITY PROCESSING & SCORING ;;;;;;;;;;;;;;;;;;;;;;;;;
-(define-type Doc-Prox
-  (no-prox)
-  (proximity (doc number?) (score number?)))
-
-(define (prox-score doc terms)
-  (cond
-    [(null? terms) '()]
-    [else
-     (cons
-       (if (equal? (hash-ref (stat-postings (get-stat (car terms))) doc [(lambda ()#f)]) #f)
-           ;The word is not in the document >>
-           -1
-           ;The word is in the document >>
-           (tf-pos-list-positions (hash-ref (stat-postings (get-stat (car terms))) doc )))
-       (prox-score doc (cdr terms)))]))
-
-;(define (compare-lists term1 term2)
- ; (cond
-  ;  [(and (null? term1) (null? term2)) 0]
-   ; [
-    ;[else
-     ;(car term1)
-
-
-    ;])
-
-  ;)
-
+  
 ;;;;;;;;;;;;; BUILD SEARCH ENGINE ::::::::::::::::::::::::::
 (define (build-engine)
   (begin (index)
