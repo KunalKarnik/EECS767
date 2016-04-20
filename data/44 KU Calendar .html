@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>KU Calendar</title>
+                            <!-- Bootstrap -->
+            <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="screen"/>
+
+            <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+                <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+                <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+
+            <link rel="stylesheet" type="text/css" href="/bundles/ewdcore/css/navbar-ku.css"/>
+            <link rel="stylesheet" type="text/css" href="/bundles/ewdcore/css/ku-footer.css"/>
+            <link rel="stylesheet" type="text/css" href="/bundles/bmatznerfontawesome/css/font-awesome.min.css" />
+                            <link rel="stylesheet" href="/css/3e7b5a2.css" />
+                                    <link rel="icon" type="image/x-icon" href="/bundles/app/images/favicon.ico" />
+        <script type="text/javascript" src="//25livepub.collegenet.com/scripts/spuds.js"></script>
+        <script>
+//            $Trumba.busyImageUri = '/images/jayhawkloader.gif';
+            if ("//calendar.ku.edu" != '') {
+                var webHost = "//calendar.ku.edu";
+            }
+        </script>
+                    <script type="text/javascript" src="/js/db2ef45.js"></script>
+            </head>
+<body>
+                            <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse eyebrownav" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active university"><a href="//www.ku.edu">The University of Kansas<span class="sr-only">(current)</span></a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                                    </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+            <div class="wrapper">
+    <div class="container-fluid">
+        <div class="brandingAndMenu">
+            <div class="col-md-2 col-lg-3">
+                <a href="//www.ku.edu">
+                                            <img src="/images/7dcf929.jpg" class="logo">
+                                    </a>
+            </div>
+            <div class="col-md-10 col-lg-9">
+                <h1 class="title">KU Event Calendar</h1>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div id="nav-search" role="search">
+                        <script type="text/javascript">
+                            $Trumba.addSpud({
+                                webName: "ku-calendar-calendarkuedu",
+                                spudType : "search"
+                            });
+                        </script>
+                    </div>
+                    <ul class="nav navbar-nav eventNav">
+                        <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li><a href="/today">Today's Events</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Browse by Type <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/type/academic_dates">Academic Dates</a></li>
+                                <li><a href="/type/athletics">Athletics</a></li>
+                                <li><a href="/type/ceremony">Ceremony</a></li>
+                                <li><a href="/type/community_event-outreach-social">Community Event / Outreach / Social</a></li>
+                                <li><a href="/type/conference-symposium-seminar">Conference / Symposium / Seminar</a></li>
+                                <li><a href="/type/exhibition-field_trip-tour">Exhibition / Field Trip / Tour</a></li>
+                                <li><a href="/type/holiday">Holiday</a></li>
+                                <li><a href="/type/lecture-presentation-defense">Lecture / Presentation / Defense</a></li>
+                                <li><a href="/type/meeting">Meeting</a></li>
+                                <li><a href="/type/orientation">Orientation</a></li>
+                                <li><a href="/type/performance">Performance</a></li>
+                                <li><a href="/type/recreation">Recreation</a></li>
+                                <li><a href="/type/recruiting">Recruiting</a></li>
+                                <li><a href="/type/student_group">Student Group</a></li>
+                                <li><a href="/type/training-professional_development">Training / Professional Development</a></li>
+                                <li><a href="/type/tutoring-study_session-review">Tutoring / Study Session / Review</a></li>
+                                <li><a href="/type/youth_program-camp">Youth Program / Camp</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                        <div class="wrapper">
+            <div class="container-fluid">
+                <div class="row content">
+                    <div id="flash" class="col-xs-12"></div>
+                    <div id="content" class="col-md-8 col-lg-7 col-lg-offset-1">        <script type="text/javascript">
+        var spudId = $Trumba.addSpud({
+            webName : "ku-calendar-calendarkuedu",
+            spudType : "main",
+            url : {
+                template: "list",
+                filterview: "Upcoming Events"
+            }
+        });
+    </script>
+    <noscript>
+        Your browser must support JavaScript to view this content.
+        Please enable JavaScript in your browser settings then try again.
+    </noscript>
+</div>
+                    <div id="sidebar" class="col-md-3 col-lg-3 col-lg-offset-0">    <div class="publisher-calendar-selector">
+        <script type="text/javascript">
+            $Trumba.addSpud({
+                webName: "ku-calendar-calendarkuedu",
+                spudType : "datefinder" });
+        </script>
+        <noscript>
+            Your browser must support JavaScript to view this content.
+            Please enable JavaScript in your browser settings then try again.
+        </noscript>
+    </div>
+    <div class="info-box hidden-print">
+        <div class="icon-container glyphicon glyphicon-envelope"></div>
+        <div class="text-container">
+            <h2>KU For You</h2>
+            View <a href="https://today.ku.edu/">KU Today</a> for campus events.
+        </div>
+    </div>
+    <div class="info-box hidden-print">
+        <div class="icon-container glyphicon glyphicon-info-sign"></div>
+        <div class="text-container">
+            <h2>About this site</h2>
+            <ul class="list-unstyled">
+                <li><a href="/about">Policies & Procedures</a></li>
+                <li><a href="/about/rss">RSS & iCal Feeds</a></li>
+                <li><a href="/about/contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="login hidden-print">
+        <h2>Submit an event</h2>
+        <p>We invite all campus event organizers to post your event listings to the calendar.</p>
+        <a class="btn btn-ku btn-block" href="https://25live.collegenet.com/ku">
+            <span class="glyphicon glyphicon-inbox"> LOGIN</span>
+        </a>
+        <p>
+            <strong>New?</strong> <a href="/account/new">Request an account</a>
+        </p>
+    </div>
+</div>
+                </div>
+	        </div>
+        </div>
+            </body>
+<footer>
+                <div id="homepage_path" data-path="/"></div>
+    <div id="date"
+         data-year=""
+         data-month=""
+         data-day=""></div>
+    
+                        <script src="/js/jquery.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/jquery-ui.js"></script>
+                                                
+            <section id="ku-footer">
+    <div class="container">
+        <div class="row">
+            <section class="col-xs-6 col-md-4 hidden-print">
+                <a href="http://www.ku.edu/"><img src="//www.ku.edu/assets/ku-template/images/ku_sig_logo.png" width="167" height="40" alt="KU signature" title="The University of Kansas"></a>
+            </section>
+            <section class="col-xs-6 col-md-4 text-center">
+                <p><img id="ku_footer_jayhawk" src="//www.ku.edu/assets/ku-template/images/ku_jayhawk.png" width="56" height="50" alt="Jayhawk icon"></p>
+            </section>
+            <section class="col-xs-12 col-md-4 hidden-print">
+                <ul>
+                    <li><a href="http://ku.edu/academics/" title="KU Academics">Academics</a></li>
+                    <li><a href="http://ku.edu/admissions/" title="KU Admissions">Admissions</a></li>
+                    <li><a href="http://www.kualumni.org/" title="Alumni information">Alumni</a></li>
+                    <li><a href="http://www.kuathletics.com/" title="KU Athletics">Athletics</a></li>
+                    <li><a href="http://www.ku.edu/about/campuses/" title="Campus information for KU">Campuses</a></li>
+                    <li><a href="http://www.ku.edu/contact/" title="Contact KU">Contacts</a></li>
+                    <li><a href="http://www.kuendowment.org/" title="Give back through KU Endowment">Giving</a></li>
+                    <li><a href="http://employment.ku.edu" title="Find employment at KU">Jobs</a></li>
+                    <li><a href="http://maps.ku.edu" title="KU Maps">Maps</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class="row">
+            <footer class="col-xs-12 col-md-10 col-md-offset-1 text-center" id="ioa-statement">
+                <p>
+                    The University of Kansas <a href="https://documents.ku.edu/policies/IOA/Nondiscrimination.htm">prohibits discrimination</a> on the basis of race, color, ethnicity, religion, sex, national origin, age, ancestry, disability, status as a veteran, sexual orientation, marital status, parental status, gender identity, gender expression, and genetic information in the university’s programs and activities. Retaliation is also prohibited by university policy. The following persons have been designated to handle inquiries regarding the nondiscrimination policies and are the Title IX coordinators for their respective campuses: Executive Director of the Office of Institutional Opportunity & Access, <a href="mailto:IOA@ku.edu" style="color:#ccc">IOA@ku.edu</a>, 1246 West Campus Road, Room 153A, Lawrence, KS 66045, 785-864-6414, 711 TTY (for the Lawrence, Edwards, Parsons, Yoder, and Topeka campuses); Director, Equal Opportunity Office, Mail Stop 7004, 4330 Shawnee Mission Parkway, Fairway, KS 66205, 913-588-8011, 711 TTY (for the Wichita, Salina, and Kansas City, Kansas, medical center campuses).
+                </p>
+            </footer>
+        </div>
+    </div>
+</section>    </footer>
+</html>

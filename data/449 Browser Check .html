@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>
+Browser Check
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/aw_css/ufe-base.css" />
+<script type="text/javascript" src="/browser_check/browser_check.js"></script>
+<script type="text/javascript" src="/aw_js/jquery.js"></script>
+<script>
+$(document).ready(function () {
+	document.getElementById("block-check").style.display = "block";
+	//if (!checkBrowser() || !checkBrowserSupport()) {
+	if(!(document.addEventListener)) {
+		window.location.replace("/browser_check/browser_suggestions.html");
+		return false;
+	}
+	setCookie();
+	if (document.cookie.indexOf("awBrowserCheck") >= 0) {
+		document.forms[0].submit();
+	}
+	else {
+		if (self==top) {
+			window.location.replace("/browser_check/browser_suggestions.html");
+			return false;
+		}
+		else {
+			window.location.replace("/browser_check/third_party_cookies.html");
+			return false;
+		}
+	}
+});
+</script>
+</head>
+<body>
+<noscript>
+If you are viewing this message, it means that JavaScript is either disabled or not supported in your browser.<br><br>
+Click <a href="/browser_check/browser_suggestions.html">here</a> for information on enabling JavaScript.
+</noscript>
+<div style="width: 400px; align: center; margin: 20px auto; display: none;" id="block-check">
+<div class="ufe-msg">
+<div class="ufe-msg-header">Browser Compatibility Check</div>
+<div class="ufe-msg-body">This may take a few seconds...
+</div>
+</div>
+</div>
+
+<form id="ufe-browsercheck-forward-form" action="https://www.applyweb.com/public/inquiry?s=kuglist" method="post">
+<input type='hidden' name='s' value='kuglist' /> 
+</form>
+</body>
+</html>
+

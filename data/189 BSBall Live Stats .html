@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+
+  <title>BSBall Live Stats</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <!-- CSS : implied media="all" -->
+  <link rel="Stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.css" />
+  <link rel='stylesheet' href='/global/BSBalllivestats/css/style.less?_=635328430333159147'></script>
+  <link rel="Stylesheet" href="//fonts.sidearmsports.com/fontello/livestats/css/livestats.css" />
+  <link rel="Stylesheet" href="//fonts.sidearmsports.com/verb/verb_all/stylesheet.css" />
+
+  <!-- Uncomment if you are specifically targeting less enabled mobile browsers
+  <link rel="stylesheet" media="handheld" href="/global/bballmediastats/css/handheld.css?v=2">  -->
+ 
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body>
+
+  <div data-bind="fadeToggle: !Game" class="loading">
+      <div class="word">Loading...</div>
+      <div class="numbers" data-widgetize="loadingNumbers: {}" data-bind="jquery: { loadingNumbers:'destroy' }"></div>
+      <img class="powered-by" src="/global/fanstats/images/powered-by.png" alt=''/>
+  </div>
+  <div id="container">
+    <header class="clearfix">
+            <div id="game_list_shade" style="display:none;">
+                <div class="inner">
+                    <div class="title"></div>
+                    <a href="#select_game/live" class="live">Live Game</a>
+                    <ul></ul>
+                </div>
+            </div>
+            <div id="scoreboard" class="stuck">
+                <div class="teams">
+                    <div id="visitingScoreboard" class="team" data-bind="background: Game.VisitingTeam.Color, color:Game.VisitingTeam.TextColor">
+                        <div class="team-score" data-bind="text: Game.VisitingTeam.Score">88</div>
+                        <div class="team-name-record">
+                            <span data-bind="text: Game.VisitingTeam.Name">Visiting Team</span>
+                            <span class="record" data-bind="text: Game.VisitingTeam.CurrentRecord"></span>
+                        </div>
+                    </div>
+                    <div id="homeScoreboard" class="team" data-bind="background: Game.HomeTeam.Color, color:Game.HomeTeam.TextColor">
+                        <div class="team-name-record">
+                            <span data-bind="text: Game.HomeTeam.Name">Home Team</span>
+                            <span class="record" data-bind="text: Game.HomeTeam.CurrentRecord"></span>
+                        </div>
+                        <div class="team-score" data-bind="text: Game.HomeTeam.Score">88</div>
+                    </div>
+                    <div class="vs">
+                        <div class="visiting-logo" data-bind="img: Game.VisitingTeam.Logo"></div>
+                        
+                        <div id="baseRunners" data-bind="with: Game.Situation">
+                            <b class="base first" data-bind="teamBackground: OnFirst, with:OnFirst">
+                                <span class='uniform' data-bind='text: UniformNumber'></span>
+                            </b>
+                            <b class="base second" data-bind="teamBackground: OnSecond, with: OnSecond">
+                                <span class='uniform' data-bind='text: UniformNumber'></span>
+                            </b>
+                            <b class="base third" data-bind="teamBackground: OnThird, with: OnThird">
+                                <span class='uniform' data-bind='text: UniformNumber'></span>
+                            </b>
+                        </div>
+
+                        <div class="home-logo" data-bind="img: Game.HomeTeam.Logo"></div>
+
+                    </div>
+                </div>
+                <div id="periodClock" data-bind='css: { compact: !Game.IsComplete() }'>
+                    <!--  ko ifnot: Game.IsComplete -->
+                    <span data-bind="text: Game.Situation.Inning() % 1 === 0.5 ? 'Bottom' : 'Top'"></span>
+                    <span data-bind="period: Game.Period, periodDisplay: 'ordinal'">Pre Game</span><br />
+                    <span data-bind="text: Game.Situation.Outs() + ' Out'">Outs</span>
+                    <!-- /ko -->
+                    <!--  ko if: Game.IsComplete -->
+                    Final
+                    <!-- /ko -->
+                </div>
+                <div id="bannerMessage" data-bind="visible: Game.BannerMessage, text: Game.BannerMessage"></div>
+            </div>
+    </header>
+    
+    <div id="main" data-bind="backgroundImage: Game.StadiumImage">
+        <div class="inside">
+            <div class="tabs" data-bind="tabs: {}, slideToggle:!!Game" style="display:none">
+                <ul>
+                    <li><a href="#summary"><i class="icon-chart-bar"></i>Summary</a></li>
+                    <li><a href="#playerStats"><i class="icon-person"></i>Individual Stats</a></li>
+                    <li><a href="#teamStats"><i class="icon-team"></i>Team Stats</a></li>
+                    <li><a href="#leaders"><i class="icon-list-numbered"></i>Leaders</a></li>
+                    <li><a href="#playbyplay"><i class="icon-list-bullet"></i>Play-by-Play</a></li>
+                </ul>
+                <div id="summary" class="clearfix" data-bind="">
+                    <div class="section-container" data-bind="">
+                        <h2 class="section-title"></h2>
+
+                        <div class="momentum-meter field-layout">
+                            <!-- ko foreach:FieldLayout -->
+                            <div class="spot" data-bind="css: spot">
+                                <div class="name" data-bind="text: player.LastName, teamBackground: player"></div>
+                                <div class="uniform" data-bind="uniformNumber: player, teamBackground: player"></div>
+                            </div>
+                            <div class="photo" data-bind="playerPhoto: player"></div>
+                            <!-- /ko -->
+
+                            <div class='count-lights' data-bind="with: Game.Situation">
+                                <div class="balls">
+                                    <span class="label">B:</span>
+                                    <div data-bind="widget: { lights: { show: 3, lit: Balls } }"></div>
+                                </div>
+                                <div class="strikes">
+                                    <span class="label">S:</span>
+                                    <div data-bind="widget: { lights: { show: 2, lit: Strikes } }"></div>
+                                </div>
+                                <div class="outs">
+                                    <span class="label">O:</span>
+                                    <div data-bind="widget: { lights: { show: 2, lit: Outs } }"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-bind="scrollbars:WindowHeight()">
+                            <table id="linescore" class="linescore" data-bind="linescore: BaseballLineScore"></table>
+                        </div>
+                        <div class="stat-comparisons" data-bind="scrollbars:WindowHeight()">
+                            <div class="row">
+                                <div class='small-6 columns row' data-bind="with: Game.VisitingTeam">
+                                    <h4 class="small-12 columns"><span data-bind="text: Name">Team</span> Lineup</h4>
+                                    <table class="default_dgrd small-12 columns lineup"  data-bind="lineup: BatOrder"></table>
+                                </div>
+                                <div class='small-6 columns row' data-bind="with: Game.HomeTeam">
+                                    <h4 class="small-12 columns"><span data-bind="text: Name">Team</span> Lineup</h4>
+                                    <table class="default_dgrd small-12 columns lineup"  data-bind="lineup: BatOrder"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-container pbp"  data-bind="">
+                        <h2 class="section-title"><span>Play</span>byPlay</h2>
+                        <div class="last-plays" data-bind="scrollbars: WindowHeight()">
+                            <div data-bind="lastPlays: Game.LastPlays"></div>
+                        </div>
+                    </div>
+                    <div id="summaryIndividualHighlight">
+                        <div class="section-container individuals" data-bind="tabs:{}">
+                            <ul>
+                                <li><a href="#situation">Situation</a></li>
+                                <li><a href="#awayBatting"><span data-bind="text: Game.VisitingTeam.Id">Visiting</span> Batting</a></li>
+                                <li><a href="#homeBatting"><span data-bind="text: Game.HomeTeam.Id">Home</span> Batting</a></li>
+                            </ul>
+                            <div id="situation" class="goals">
+                                <div data-bind="scrollbars: WindowHeight()">
+                                    <!-- ko with: Game.Situation.Pitcher -->
+                                    <div class="goal">
+                                        <div class="left">
+                                            <div class="photo"  data-bind="playerPhoto: $data"></div>
+                                            <div class="uniform"  data-bind="uniformNumber: $data, teamBackground: $data"></div>
+                                        </div>
+                                        <div class="main">
+                                            <span>Pitcher</span>
+                                            <span data-bind="text: $root.Game.Situation.PitcherHandedness() + 'H'"></span>
+                                            <span data-bind="text: $root.JoinPlayerName($data)"></span>
+
+                                            <!-- ko with: $parent.FindAllPlayerStats(Team, UniformNumber, LastName) -->
+                                            <div class="stat-line" data-bind="statLine: [$data, 'Pitching', { 'P': 'P', 'H': 'Hits', 'BB': 'BB', 'SO': 'SO', 'ER': 'ER' }], statLineLabel: 'Today'"></div>
+                                            <div class="stat-line" data-bind="statLine: [$data, 'PitchingSeason', { 'ERA': 'ERA', 'IP': 'IP', 'H': 'H', 'SO': 'SO' }], statLineLabel: 'Season'"></div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko with: Game.Situation.WinPitcher -->
+                                    <div class="goal">
+                                        <div class="left">
+                                            <div class="photo"  data-bind="playerPhoto: $data"></div>
+                                            <div class="uniform"  data-bind="uniformNumber: $data, teamBackground: $data"></div>
+                                        </div>
+                                        <div class="main">
+                                            <span>WIN</span>
+                                            <span data-bind="text: $root.JoinPlayerName($data)"></span>
+
+                                            <!-- ko with: $parent.FindAllPlayerStats(Team, UniformNumber, LastName) -->
+                                            <div class="stat-line" data-bind="statLine: [$data, 'Pitching', { 'P': 'P', 'H': 'Hits', 'BB': 'BB', 'SO': 'SO', 'ER': 'ER' }], statLineLabel: 'Today'"></div>
+                                            <div class="stat-line" data-bind="statLine: [$data, 'PitchingSeason', { 'ERA': 'ERA', 'IP': 'IP', 'H': 'H', 'SO': 'SO' }], statLineLabel: 'Season'"></div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko with: Game.Situation.LossPitcher -->
+                                    <div class="goal">
+                                        <div class="left">
+                                            <div class="photo"  data-bind="playerPhoto: $data"></div>
+                                            <div class="uniform"  data-bind="uniformNumber: $data, teamBackground: $data"></div>
+                                        </div>
+                                        <div class="main">
+                                            <span>LOSS</span>
+                                            <span data-bind="text: $root.JoinPlayerName($data)"></span>
+
+                                            <!-- ko with: $parent.FindAllPlayerStats(Team, UniformNumber, LastName) -->
+                                            <div class="stat-line" data-bind="statLine: [$data, 'Pitching', { 'P': 'P', 'H': 'Hits', 'BB': 'BB', 'SO': 'SO', 'ER': 'ER' }], statLineLabel: 'Today'"></div>
+                                            <div class="stat-line" data-bind="statLine: [$data, 'PitchingSeason', { 'ERA': 'ERA', 'IP': 'IP', 'H': 'H', 'SO': 'SO' }], statLineLabel: 'Season'"></div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko with: Game.Situation.SavePitcher -->
+                                    <div class="goal">
+                                        <div class="left">
+                                            <div class="photo"  data-bind="playerPhoto: $data"></div>
+                                            <div class="uniform"  data-bind="uniformNumber: $data, teamBackground: $data"></div>
+                                        </div>
+                                        <div class="main">
+                                            <span>SAVE</span>
+                                            <span data-bind="text: $root.JoinPlayerName($data)"></span>
+
+                                            <!-- ko with: $parent.FindAllPlayerStats(Team, UniformNumber, LastName) -->
+                                            <div class="stat-line" data-bind="statLine: [$data, 'Pitching', { 'P': 'P', 'H': 'Hits', 'BB': 'BB', 'SO': 'SO', 'ER': 'ER' }], statLineLabel: 'Today'"></div>
+                                            <div class="stat-line" data-bind="statLine: [$data, 'PitchingSeason', { 'ERA': 'ERA', 'IP': 'IP', 'H': 'H', 'SO': 'SO' }], statLineLabel: 'Season'"></div>
+                                            <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko with: Game.Situation.Batter -->
+                                    <div class="goal">
+                                        <div class="left">
+                                            <div class="photo"  data-bind="playerPhoto: $data"></div>
+                                            <div class="uniform"  data-bind="uniformNumber: $data, teamBackground: $data"></div>
+                                        </div>
+                                        <div class="main">
+                                            <span>At Bat</span>
+                                            <span data-bind="text: $root.Game.Situation.BatterHandedness() + 'H'"></span>
+                                            <span data-bind="text: $root.JoinPlayerName($data)"></span>
+
+                                            <!-- ko with: $parent.FindAllPlayerStats(Team, UniformNumber, LastName) -->
+                                            <div class="stat-line" data-bind="statLine: [$data, 'Batting', { 'AB': 'AB', 'H': 'Hits', 'SO': 'SO', 'OBP': 'OBP', 'RBI': 'RBI' }], statLineLabel: 'Today'"></div>
+                                            <div class="stat-line" data-bind="statLine: [$data, 'BattingSeason', { 'AVG': 'Avg', 'R': 'R', 'HR': 'HR', 'RBI': 'RBI' }], statLineLabel: 'Season'"></div>
+                                        <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko with: Game.Situation.OnDeck -->
+                                    <div class="goal">
+                                        <div class="left">
+                                            <div class="photo"  data-bind="playerPhoto: $data"></div>
+                                            <div class="uniform"  data-bind="uniformNumber: $data, teamBackground: $data"></div>
+                                        </div>
+                                        <div class="main">
+                                            <span>On Deck</span>
+                                            <span data-bind="text: $root.Game.Situation.OnDeckHandedness() + 'H'"></span>
+                                            <span data-bind="text: $root.JoinPlayerName($data)"></span>
+
+                                            <!-- ko with: $parent.FindAllPlayerStats(Team, UniformNumber, LastName) -->
+                                            <div class="stat-line" data-bind="statLine: [$data, 'Batting', { 'AB': 'AB', 'H': 'Hits', 'SO': 'SO', 'OBP': 'OBP', 'RBI': 'RBI' }], statLineLabel: 'Today'"></div>
+                                            <div class="stat-line" data-bind="statLine: [$data, 'BattingSeason', { 'AVG': 'Avg', 'R': 'R', 'HR': 'HR', 'RBI': 'RBI' }], statLineLabel: 'Season'"></div>
+                                        <!-- /ko -->
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                </div>
+                            </div>
+                            <div id="awayBatting" class="goals">
+                                <div data-bind="scrollbars: WindowHeight()">
+                                    <div class="stat-grid-container full">
+                                        <table class="default_dgrd stats_dgrd"
+                                            data-bind="playerStats: SummarizeStats(BattingSummary, Stats.VisitingTeam.PlayerGroups.Batting())"></table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="homeBatting" class="goals">
+                                <div data-bind="scrollbars: WindowHeight()">
+                                    <div class="stat-grid-container full">
+                                        <table class="default_dgrd stats_dgrd"
+                                            data-bind="playerStats: SummarizeStats(BattingSummary, Stats.HomeTeam.PlayerGroups.Batting())"></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="playerStats" class="clearfix">
+                    <div class="section-container">
+                        <div data-bind="tabs: {}">
+                            <ul>
+                                <li><a href="#visitingPlayerStats"><span data-bind="text: Game.VisitingTeam.Name">Visiting</span></a></li>
+                                <li><a href="#homePlayerStats"><span data-bind="text: Game.HomeTeam.Name">Home</span></a></li>
+                            </ul>
+                            <div id="visitingPlayerStats" data-bind="scrollbars: WindowHeight">
+                                <div class="stat-grid-container full">
+                                    <h2 class="default_dgrd_caption">Batting</h2>
+                                    <table class="default_dgrd stats_dgrd"
+                                            data-bind="playerStats: Stats.VisitingTeam.PlayerGroups.Batting"></table>
+                                </div>
+                                <div class="stat-grid-container full">
+                                    <h2 class="default_dgrd_caption">Fielding</h2>
+                                    <table class="default_dgrd stats_dgrd"
+                                            data-bind="playerStats: Stats.VisitingTeam.PlayerGroups.Fielding"></table>
+                                </div>
+                                <div class="stat-grid-container full">
+                                    <h2 class="default_dgrd_caption">Pitching</h2>
+                                    <table class="default_dgrd stats_dgrd"
+                                        data-bind="playerStats: Stats.VisitingTeam.PlayerGroups.Pitching"></table>
+                                </div>
+                            </div>
+                            <div id="homePlayerStats" data-bind="scrollbars: WindowHeight">
+                                <div class="stat-grid-container full">
+                                    <h2 class="default_dgrd_caption">Batting</h2>
+                                    <table class="default_dgrd stats_dgrd"
+                                        data-bind="playerStats: Stats.HomeTeam.PlayerGroups.Batting"></table>
+                                </div>
+                                <div class="stat-grid-container full">
+                                    <h2 class="default_dgrd_caption">Fielding</h2>
+                                    <table class="default_dgrd stats_dgrd"
+                                        data-bind="playerStats: Stats.HomeTeam.PlayerGroups.Fielding"></table>
+                                </div>
+                                <div class="stat-grid-container full">
+                                    <h2 class="default_dgrd_caption">Pitching</h2>
+                                    <table class="default_dgrd stats_dgrd"
+                                        data-bind="playerStats: Stats.HomeTeam.PlayerGroups.Pitching"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="teamStats" class="clearfix">
+                    <div class="section-container" data-bind="scrollbars: WindowHeight">
+                        <div data-bind="fanTeamStats: Stats.TeamTotals">
+                        </div>
+                        
+                        <div class="stat-grid-container one-half">
+                            <h2 class="default_dgrd_caption"><span data-bind="text: Game.VisitingTeam.Name">Visiting</span></h2>
+                            <table class="default_dgrd stats_dgrd"
+                                   data-bind="playerStats: Stats.VisitingTeam.TeamPeriodStats()"></table>
+                        </div>
+                        <div class="stat-grid-container one-half">
+                            <h2 class="default_dgrd_caption"><span data-bind="text: Game.HomeTeam.Name">Home</span></h2>
+                            <table class="default_dgrd stats_dgrd"
+                                   data-bind="playerStats: Stats.HomeTeam.TeamPeriodStats()"></table>
+                        </div>
+                    </div>
+                </div>
+                <div id="leaders" class="clearfix">
+                    <div class="section-container" data-bind="">
+                        <div data-bind="fanLeaders: Leaders"></div>
+                    </div>
+                </div>
+                <div id="playbyplay">
+                    <div class="section-container">
+                        <div id="playListFilters">
+                            <div class="filter">
+                            Inning <select id="playListFilterPeriod"
+                                            data-bind="value: PlaysFilter.Period,
+                                                       optionsText: 'text',
+                                                       optionsValue: 'value',
+                                                       options: PlaysFilter.Periods,
+                                                       optionsCaption: '',
+                                                       select2: { placeholder:'Select...', allowClear: true }"></select></div>
+                    
+                            <div class="filter">
+                            Team <select id="playListFilterTeam" data-bind="value: PlaysFilter.Team,
+                                                                            select2: { placeholder:'Select...', allowClear: true }">
+                                    <option value=""></option>
+                                    <option value="VisitingTeam" data-bind="text: Game.VisitingTeam.Name">Away</option>
+                                    <option value="HomeTeam" data-bind="text: Game.HomeTeam.Name">Home</option>
+                                </select></div>
+                                
+                            <div class="filter">
+                            Player <select id="playListFilterPlayer"
+                                           data-bind="value: PlaysFilter.Player,
+                                                      options: PlaysFilter.PlayersOnSelectedTeam(),
+                                                      optionsText: 'text',
+                                                      optionsValue: 'value',
+                                                      enable: PlaysFilter.Team(),
+                                                      optionsCaption: '',
+                                                      select2: { placeholder:'Select...', allowClear: true }"></select></div>
+                            <div class="filter">
+                            Play Type <select id="playListFilterType" data-bind="value: PlaysFilter.PlayType,
+                                                               options: PlaysFilter.PlayTypes,
+                                                               optionsCaption: '',
+                                                               select2: { placeholder:'Select...', allowClear: true }"></select></div>
+                            <div class="filter">
+                            Result <select id="playListFilterAction"
+                                                    data-bind="value: PlaysFilter.Result,
+                                                               options: PlaysFilter.Results,
+                                                               optionsCaption: '',
+                                                               select2: { placeholder:'Select...', allowClear: true }"></select></div>
+                            <div class="filter">
+                            <button data-bind="visible: PlaysFilter.Any,
+                                               click: PlaysFilter.Clear">Clear All</button></div>
+                        </div>
+                        <div class="play-by-play-grid-container" data-bind="scrollbars: [WindowHeight(), FilteredPlays().length], ">
+                            <table id="playList" class="default_dgrd">
+                                <thead>
+                                    <tr class="default_dgrd_header">
+                                        <td class="column_Time">Time</td>
+                                        <td class="column_Score">Score</td>
+                                        <td class="column_Team">Team</td>
+                                        <td class="column_Player">Player</td>
+                                        <td class="column_Narrative"></td>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="fanPlaysList: FilteredPlays"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+    <div class="inner">
+        <div id="footer_licensed">This Service is licensed under the following DDB Technologies, LLC U.S. Patent 5,526,479</div>
+
+        <div id="footer-ad1" class="ad" data-bind="adSpot: { hostname: Game.ClientHostname, location: 'livestats-footer1', rotate:0 }"></div>
+        <div id="footer-ad2" class="ad" data-bind="adSpot: { hostname: Game.ClientHostname, location: 'livestats-footer2', rotate:0 }"></div>
+        
+        <a href="http://www.sidearmsports.com" target="_blank" id="footer_sidearm_logo">
+            <img src="/global/fanstats/images/powered-by.png" alt="Powered by SIDEARM Sports" />
+        </a>
+    </div>
+</footer>
+
+<div id="leftSkyscraper" class="ad" data-bind="adSpot: { hostname: Game.ClientHostname, location: 'livestats-left-skyscraper', rotate:0 }"></div>
+<div id="rightSkyscraper" class="ad" data-bind="adSpot: { hostname: Game.ClientHostname, location: 'livestats-right-skyscraper', rotate:0 }"></div>
+
+  </div> <!--! end of #container -->
+    
+    
+    
+
+<!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+<![endif]-->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.0.0/es5-shim.min.js"></script>
+
+<!-- Javascript at the bottom for fast page loading -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.4/waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.3/jquery.mousewheel.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/URI.js/1.11.2/URI.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tinycolor/1.1.1/tinycolor.min.js"></script>
+<script src="//v2.realtime.sidearmsports.com/js/sidearm.realtime.xdm.js?_=201311221500"></script>
+
+<script src='/services/concat.ashx?paths=/global/fanstats/js/delayStats.js,/global/fanstats/js/setImmediate.js&_=635454607680717350'></script>
+
+<script>
+    $.get("/services/statsd.ashx", { count: "pageload", v: "2" });
+    setInterval(function() {
+        $.get("/services/statsd.ashx", { count: "viewerminute", v: "2" });
+    }, 60 * 1000);
+</script>
+
+  <script src='/services/concat.ashx?paths=/global/mediastats/js/libs/sidearm.stringbuilder.js,/global/mediastats/js/helpers.js,/global/mediastats/js/bindingHandlers.js,/global/mediastats/js/GameViewModel.js,/global/fanstats/js/jquery.mCustomScrollbar.min.js,/global/BSBallmediastats/js/BSBallGameViewModel.js,/global/BSBalllivestats/js/script.js&_=635962386786488389'></script>
+
+  <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet 
+   change the UA-XXXXX-X to be your site's ID -->
+<script>
+  var _gaq = [['_setAccount', 'UA-264144-11'], ['_trackPageview']];
+  (function (d, t) {
+      var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+      g.async = true;
+      g.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+      s.parentNode.insertBefore(g, s);
+  })(document, 'script');
+</script>
+  
+</body>
+</html>

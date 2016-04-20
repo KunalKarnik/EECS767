@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"7a1ff40486","applicationID":"12498524","transactionName":"ZARQMUpYDBJUVEdbXl1OfzN7FioOWFJwXV9HE10JVFwQTnxZV1dJ","queueTime":0,"applicationTime":147,"ttGuid":"32C61CF3778C6EBF","agent":""}</script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(e,t){return function(){o(e,[(new Date).getTime()].concat(a(arguments)),null,t)}}var o=e("handle"),i=e(2),a=e(3);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var u=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(u,function(e,t){newrelic[t]=r(f+t,"api")}),i(c,function(e,t){newrelic[t]=r(f+t)}),t.exports=newrelic,newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),o("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(0>o?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=l(n),u=a.length,c=0;u>c;c++)a[c].apply(i,r);var s=f[g[n]];return s&&s.push([m,n,r,i]),i}function p(e,t){w[e]=l(e).concat(t)}function l(e){return w[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",g[n]=t,t in f||(f[t]=[])})}var w={},g={},m={on:p,emit:n,get:d,listeners:l,context:t,buffer:v};return m}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},p=t.exports=o();p.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!w++){var e=v.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(l,function(t,n){e[t]||(e[t]=n)});var n="https"===p.split(":")[0]||e.sslForHttp;v.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=v.proto+e.agent,t.parentNode.insertBefore(r,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var p=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),v=t.exports={offset:a(),origin:p,features:{},xhrWrappable:d};s.addEventListener?(s.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(s.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),u("mark",["firstbyte",a()],null,"api");var w=0},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/Assets/clink/images/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/Assets/clink/images/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/Assets/clink/images/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/Assets/clink/images/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/Assets/clink/images/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/Assets/clink/images/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/Assets/clink/images/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/Assets/clink/images/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/Assets/clink/images/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/Assets/clink/images/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/Assets/clink/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/Assets/clink/images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/Assets/clink/images/favicon-16x16.png">
+	<link rel="shortcut icon" href="/Assets/clink/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/Assets/clink/images/favicon.ico" type="image/x-icon">
+
+    
+		<meta name="apple-itunes-app" content="app-id=940682997">
+    <title>
+	The Beat@KUMC - Home
+</title>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn2.campuslabs.com/assets/core/v3.9/css/jqueryui/campuslabs.core.jquery.ui.v3.9.097.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn1.campuslabs.com/assets/kendoui/v3.9/css/campuslabs.kendoui.v3.9.097.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn1.campuslabs.com/assets/core.bootstrap3/v3.9/scss/core/core.v3.9.097.css" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdn1.campuslabs.com/assets/clink/v3.9/scss/site.v3.9.097.css" />
+    
+
+	<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900,300italic,400italic,900italic|Noto+Sans:400,700,400italic|Droid+Sans:400,700|Rokkitt:400,700|Open+Sans:300italic,400italic,700italic,400,700,300|Montserrat:400,700|Raleway:400,900,600|Bree+Serif|Roboto+Slab:400,700|Lato:400,300,700,400italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn2.campuslabs.com/assets/core/v3.9/css/campuslabs.core.icons.v3.9.097.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn1.campuslabs.com/assets/kendoui/v3.9/css/campuslabs.kendoui.v3.9.097.css" />
+    <script type="text/javascript" src="https://cdn2.campuslabs.com/assets/core/v3.9/js/libs/campuslabs.jquery.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/core/v3.9/js/libs/campuslabs.core.head.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/core/v3.9/js/libs/campuslabs.jquery.ui.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/core/v3.9/js/libs/campuslabs.jquery.libs.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/core/v3.9/js/campuslabs.core.v3.9.097.js"></script>
+
+    <script type="text/javascript">var cl_userLang = '';</script>
+
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/clink/v3.9/js/svg/cl.datepickerlocalizationoverride.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/clink/v3.9/js/libs/cl.jquery.libs.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/clink/v3.9/js/svg/cl.svg.main.v3.9.097.js"></script>
+
+    <script type="text/javascript" src="https://cdn2.campuslabs.com/assets/core4/v3.9/js/angular/campuslabs.core4.angular.v3.9.097.js"></script>
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/core4/v3.9/js/angular-bootstrap/campuslabs.core4.angular-bootstrap.v3.9.097.js"></script>
+
+    
+    
+
+    <script type="text/javascript" src="https://cdn1.campuslabs.com/assets/kendoui/v3.9/js/campuslabs.kendoui.custom.v3.9.097.js"></script>
+
+    
+	<script>
+	    (function (i, s, o, g, r, a, m) {
+	        i['GoogleAnalyticsObject'] = r;
+	        i[r] = i[r] || function () {
+	            (i[r].q = i[r].q || []).push(arguments)
+	        }, i[r].l = 1 * new Date();
+	        a = s.createElement(o),
+	            m = s.getElementsByTagName(o)[0];
+	        a.async = 1;
+	        a.src = g;
+	        m.parentNode.insertBefore(a, m)
+	    })(window, document, 'script', '//www.google-analytics.com/analytics.js', '_ga');
+
+	    _ga('create', 'UA-38298106-6', 'auto', 'collegiatelink');
+	    _ga('collegiatelink.send', 'pageview');
+	</script>
+
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-37880618-6']);
+            _gaq.push(['_trackPageview']);
+            (function () {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+	
+	<script type="text/javascript" src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+	<script type="text/javascript" src="https://cdn2.campuslabs.com/assets/clink/v3.9/js/tinymce.init.v3.9.097.js"></script>
+	
+
+
+    
+	<script type="text/javascript">
+	    $(function () {
+	        var URLS = SVG.URLS;
+	        URLS.TinyMCEUrl = '/assets/tinymce/js/tiny_mce.js';
+
+	        SVG.InitPlugins();
+	    });
+	</script>
+
+	<style>
+		.container-social .social-links .social-icon:hover {
+			border-color: #0051ba !important;
+		}
+
+		.navbar-inverse .navbar-nav > li.active > a,
+		.navbar-inverse .navbar-nav > li.active > a:hover,
+		.container-subnav .navbar-inverse .navbar-nav .dropdown-menu > li.active > a,
+		.container-subnav .navbar-inverse .navbar-nav .dropdown-menu > li.active > a:hover {
+			border-bottom-color: #0051ba !important;
+		}
+
+		.navbar-user .dropdown-menu > li {
+			border-left-color: #0051ba !important;
+		}
+
+		.section-tiles-tile .tile-image {
+			border-top-color: #004094 !important;
+		}
+
+		.navbar-nav .badge,
+		.navbar-nav li.section-globalnav-signin a.btn-primary,
+		.navbar-nav li.section-globalnav-signin a.btn-primary:active,
+		.section-footer .btn-primary,
+		.section-footer .btn-primary:active,
+		.section.container-coverphoto .btn-primary,
+		.section.container-coverphoto .btn-primary:active,
+		.btn-accent,
+		.btn-accent:active,
+		.tagline,
+		.mainStart-container .optionContainer .mainStart-optionIcon,
+		.mainStart-container .optionContainer .mainStart-optionIcon:active,
+		.container-social .social-links .social-icon:hover {
+			background-color: #0051ba !important;
+		}
+
+		.navbar-nav li.section-globalnav-signin a.btn-primary:hover,
+		.section.container-coverphoto .btn-primary:hover,
+		.section-footer .btn-primary:hover,
+		.btn-accent:hover,
+		.mainStart-container .optionContainer .mainStart-optionIcon:hover {
+			background-color: #004094 !important;
+		}
+
+	</style>
+<style>
+	h3,
+	h4,
+	.section.container-coverphoto h2,
+	.section.container-coverphoto h2 .h2,
+	h2 .section.container-coverphoto .h2,
+	.section.container-coverphoto h3,
+	.statusSection,
+	.org-stats .number,
+	.container-social .social-icons .social-title h2, .container-social .social-icons .social-title h2 .h2,
+	h2 .container-social .social-icons .social-title .h2, .navbar-user-container {
+		font-family: Roboto Slab!important;
+	}
+
+	body,
+	h2,
+	h5,
+	h6,
+	.btn,
+	.img-avatarinitials,
+	.org-registration-text,
+	.metric .dataItem-data,
+	.approvalSection .arrow_box .number,
+	.message-email_container,
+	.approvalSection .arrow_box .number,
+	.additionalFields legend,
+	.metric .dataItem-data,
+	.metric h4,
+	.createEvent-header,
+	.monetaryImpactHours,
+	#monetaryImpact,
+	#userNav-container,
+	.organization-navigation li a,
+	table.table.roster-table > tbody > tr > td, table.table.roster-table > thead > tr > th, #InterestRanker ul, #InterestManager ul, .linkList {
+		font-family: Lato!important;
+	}
+</style>
+
+</head>
+	<body>
+		<noscript>
+			<div id="javascript-message">
+				<h1>JavaScript is disabled on your browser. Please enable JavaScript to use this site.</h1>
+			</div>
+		</noscript>
+
+		<div id="statusBar" class="statusBar"></div>
+
+
+	<div class="acessibility-skip" id="mainNavSkip">
+		<a href="#mainContent" id="mainNavSkipToContent">Skip to Content</a>
+		<a href="#subNavSkipToContent" id="mainNavSkipNav">Skip Main Navigation</a>
+	</div>	
+<div id="userToolBar" ng-controller="ToolBarCtrl">
+
+    <div  class="section-globalnav navbar navbar-inverse navbar-fixed-top">
+	    <div class="container-fluid">
+		    <div class="navbar-header">
+			    <button type="button" ng-click="showMobileNav = !showMobileNav" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar">
+				    <span class="sr-only">Toggle navigation</span>
+				    <span class="glyphicon glyphicon-chevron-down"></span>
+			    </button>
+			    <a class="navbar-brand" href="/">The Beat@KUMC</a>
+		    </div>
+		    <div id="navbar" class="navbar-collapse collapse" ng-class="{ 'collapse': !showMobileNav }" role="navigation" aria-label="Main menu">
+			    <ul class="nav navbar-nav navbar-right"  role="menu">
+				    <li role="menuitem" class=active><a href="/">Home</a></li>
+				    <li role="menuitem" ><a href="/events">Events</a></li>
+				    <li role="menuitem" ><a href="/organizations">Organizations</a></li>
+                    
+					    <li role="menuitem" dropdown aria-haspopup="true">
+						    <a href="#" class="dropdown-toggle" dropdown-toggle role="button" aria-expanded="false" tabindex="0">Campus Links <span class="caret"></span></a>
+						    <ul class="dropdown-menu" role="menu" aria-label="submenu">
+							    
+								    <li role="menuitem" tabindex="-1"><a href="http://www.kumc.edu/">KUMC Homepage</a></li>
+							    
+								    <li role="menuitem" tabindex="-1"><a href="http://www.kumc.edu/student-services.html">KUMC Student Services</a></li>
+							    
+								    <li role="menuitem" tabindex="-1"><a href="http://www.kumc.edu/student-services/office-of-student-life.html">KUMC Office of Student Life</a></li>
+							    
+								    <li role="menuitem" tabindex="-1"><a href="https://cas.kumc.edu/cas/login?service=https%3A%2F%2Fmy.kumc.edu%2FLogin">myKUMC</a></li>
+							    
+								    <li role="menuitem" tabindex="-1"><a href="https://mail.kumc.edu/owa/auth/logon.aspx?replaceCurrent=1&url=http%3a%2f%2fmail.kumc.edu%2fowa%2f">KUMC Email</a></li>
+							    
+								    <li role="menuitem" tabindex="-1"><a href="http://support.collegiatelink.net/forums/20356442-student-tutorials">Video Tutorials for Students</a></li>
+							    
+						    </ul>
+					    </li>
+				    
+                    <li role="menuitem" class="dropdown-toggle">
+                        <a href="javascript:" ng-click="toggleSearch()"><span class="icon-search">Search</span></a>
+                    </li>
+				
+                    <li role="menuitem" class="section-globalnav-signin">
+                        <a href="/account/logon" class="btn btn-primary">Sign In</a>
+				    </li>
+                
+			    </ul>
+		    </div><!--/.nav-collapse -->
+	    </div>
+    </div>
+	<style>
+		li.header {
+			list-style-type: none;
+		}
+	</style>
+    <div collapse="isCollapsed" class="search-container" ng-keyDown="collapseOnESCKey($event)" ng-cloak>
+	    <div class="container-fluid">	
+            <div class="form-group">
+                <label for="global-search" class="visuallyhidden">Search the Site</label>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <span class="icon-search">Search</span>
+                    </span>
+                    <input cl-search focus="focusSearch" id="global-search" type="text" class="form-control" placeholder="Search" ng-model="search" ng-change="query()" />
+                </div>
+            </div>
+            <div class="row search-results">
+                <div class="col-sm-4" ng-show="search.length && (events.Results.length || news.Results.length || orgs.Results.length)" >
+                    <ul>
+                        <li>Organizations</li>
+                        <li ng-repeat="result in orgs.Results"><a ng-href="{{ result.GroupUrl }}" ng-click="clickResult(result,'Organizations', $event)">{{ result.DisplayName }}</a></li>
+						<li class="list__noresults" ng-show="!orgs.Results.length">
+							<span>No Results</span>
+						</li>
+						<li class="list__showmore" ng-show="orgs.TotalCount > 10">
+							<a ng-href="{{ orgs.MoreUrl }}" ng-click="clickResultMore(orgs.MoreUrl,'Organizations', $event)"> Show more <div class="glyphicon glyphicon-chevron-right">&nbsp;</div></a>
+						</li>
+                    </ul>
+                </div>
+                <div class="col-sm-4" ng-show="search.length && (events.Results.length || news.Results.length || orgs.Results.length)">
+                    <ul>
+                        <li>Events</li>
+                        <li ng-repeat="result in events.Results"><a ng-href="{{ result.EventUrl }}" ng-click="clickResult(result,'Events', $event)">{{ result.Name }}</a></li>
+						<li class="list__noresults" ng-show="!events.Results.length">
+							<span>No Results</span>
+						</li>
+						<li class="list__showmore" ng-show="events.TotalCount > 10">
+							<a ng-href="{{ events.MoreUrl }}" ng-click="clickResultMore(events.MoreUrl,'Events', $event)"> Show more  <div class="glyphicon glyphicon-chevron-right">&nbsp;</div></a>
+						</li>
+                    </ul>
+                </div>
+				<div class="col-sm-4" ng-show="search.length && (events.Results.length || news.Results.length || orgs.Results.length)">
+                    <ul>
+                        <li>News</li>
+                        <li ng-repeat="result in news.Results"><a ng-href="{{ result.Url }}" ng-click="clickResult(result,'News', $event)">{{ result.Title }}</a></li>
+						<li class="list__noresults" ng-show="!news.Results.length">
+							<span>No Results</span>
+						</li>
+						<li class="list__showmore" ng-show="news.TotalCount > 10">
+							 <a ng-href="{{ news.MoreUrl }}" ng-click="clickResultMore(news.MoreUrl,'News', $event)"> Show More <div class="glyphicon glyphicon-chevron-right">&nbsp;</div></a> 
+						</li>
+                    </ul>
+                </div>
+				<div class="col-xs-12" ng-show="search.length && !events.Results.length && !news.Results.length && !orgs.Results.length">
+					<ul>
+                        <li class="list__noresults text-center"><strong>No Results</strong></li>
+                    </ul>
+				</div>
+            </div>
+			<div class="search-closebutton">
+				<a class="btn btn-warning btn-small" ng-click="toggleSearch();">Close Search</span></a>
+			</div>	
+	    </div>
+    </div>
+</div>
+
+		
+
+			<section class="section container-androidapp-corq" id="corqAndroidApp">
+				<a href="#" title="close" class="androidapp-corq-close" id="androidAppCorqClose">X</a>
+				<img class="androidapp-corq-appimage" src="https://cdn2.campuslabs.com/assets/clink/v3.9/images/corq_38x38.png" alt="Alternate Text" />
+				<p class="androidapp-corq-content">
+					<strong>Corq</strong>
+					<span>
+						for Android
+					</span>
+				</p>
+				<a class="androidapp-corq-playstorelink" href="market://details?id=com.campuslabs.collegiatelink">
+					View
+				</a>
+			</section>
+
+		
+
+
+
+
+
+
+<style>
+	.container-coverphoto {
+		background-image: url(https://images.collegiatelink.net/clink/images/a3152b54-05fd-48ec-96d9-d8dd2a19774dd060fc07-61b5-4c2c-b934-8da6522249a9.png?preset=large-h); background-image: linear-gradient(rgba(0, 0, 0, .10), rgba(0, 0, 0, .65)), url(https://images.collegiatelink.net/clink/images/a3152b54-05fd-48ec-96d9-d8dd2a19774dd060fc07-61b5-4c2c-b934-8da6522249a9.png?preset=large-h)!important;
+	}
+
+		@media handheld, only screen and ( max-width: 949px ) {
+			.container-coverphoto__home {
+			background-image: url(https://images.collegiatelink.net/clink/images/f6f4939b-8c12-451d-9ca7-97d34fbd512918ca93e4-ac4d-4fd1-9ebd-b15c89e9769d.png?preset=large-h); background-image: linear-gradient(rgba(0, 0, 0, .10), rgba(0, 0, 0, .65)), url(https://images.collegiatelink.net/clink/images/f6f4939b-8c12-451d-9ca7-97d34fbd512918ca93e4-ac4d-4fd1-9ebd-b15c89e9769d.png?preset=large-h)!important;
+			}
+		}
+	</style>
+
+<section class="section container-coverphoto container-coverphoto__home" role="complementary">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="flash" style="display: none">
+					<a href="#">Close</a>
+				</div>
+			</div>
+			<div class="col-sm-12">
+				<div class="label-hidden">
+					<h1>The Beat@KUMC Home</h1>
+				</div>
+				<h2 class="text-center text__shadow h2__home">
+					Sign in to the The Beat@KUMC experience
+				</h2>
+				<div id="mainContent" tabindex="-1">
+					<a href="/account/logon" class="btn btn-primary btn__signin">Sign In Now</a>
+				</div>
+				<a href="/support" class="btn btn__signinhelp btn__nocase text__shadow kmClickToSupportLocal"><i>Support</i></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="tagline">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				Jump in with these opportunities!
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<section class="row section-tiles" id="opportunityBoard">
+	<div class="col-xs-12 prl-0">
+		<ul class="list-unstyled">
+			<carousel ng-cloak>
+					<slide>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/951513" >
+										<div class="tile-image themeborder-thoughtfullearning text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/7297e600-82e8-4b44-9a33-8581a75eadd6d46107bf-f24b-4009-8a9f-bcf83ddf1413.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													Using Social Media to Make Your #Career
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													21 Apr 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													12:00 PM - 1:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Orr-Major Room 1015
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-thoughtfullearning">&nbsp;</span>
+													Learning
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/902494" >
+										<div class="tile-image themeborder-social text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/be058dfd-1c89-45d6-9490-27913f609c45a5ed3f1e-f09c-409f-ab91-6de2be45fca4.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													Popcorn Thursday
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													21 Apr 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													2:00 PM - 3:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Stoland Lounge
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-social">&nbsp;</span>
+													Social
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/949648" >
+										<div class="tile-image themeborder-thoughtfullearning text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/d1ab12c5-3754-4030-bdd4-a82c049e824503381eed-23ae-48f9-85e3-49d60fd7e8fa.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													Earth Day Celebration
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													25 Apr 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													11:00 AM - 2:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Murphy Courtyard
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-thoughtfullearning">&nbsp;</span>
+													Learning
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/946133" >
+										<div class="tile-image themeborder-thoughtfullearning text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/d7133862-f057-4b87-b7bc-ae2459a5ce1127bbf80a-7396-4bd4-8c7f-d07437a1aef1.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													Monitoring Gait Pattern During The First Year After Anterior Cruciate Ligament Reconstruction Using Accelerometry 
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													25 Apr 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													12:00 PM - 1:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Orr-Major 1023
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-thoughtfullearning">&nbsp;</span>
+													Learning
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/902495" >
+										<div class="tile-image themeborder-social text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/be058dfd-1c89-45d6-9490-27913f609c45a5ed3f1e-f09c-409f-ab91-6de2be45fca4.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													Popcorn Thursday
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													28 Apr 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													2:00 PM - 3:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Stoland Lounge
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-social">&nbsp;</span>
+													Social
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/902496" >
+										<div class="tile-image themeborder-social text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/be058dfd-1c89-45d6-9490-27913f609c45a5ed3f1e-f09c-409f-ab91-6de2be45fca4.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													Popcorn Thursday
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													05 May 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													2:00 PM - 3:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Stoland Lounge
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-social">&nbsp;</span>
+													Social
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/events/details/943398" >
+										<div class="tile-image themeborder-fundraising text-center" style="background-image: url('https://images.collegiatelink.net/clink/images/e1ea53cd-8093-40a5-b8f5-93737dfdab12b4b5cc6d-4e28-4b01-900a-c2942cbb5310.png?preset=med-rect')">
+											<div class="tile-info col-xs-12 text-left">
+												<p class="tile-info-title">
+													2016 Walk to End Alzheimer&#39;s
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-calendar">&nbsp;</span>
+													02 Oct 2016
+												</p>
+												<p class="tile-info-time">
+													<span class="glyphicon glyphicon-time">&nbsp;</span>
+													8:00 AM - 12:00 PM
+												</p>
+												<p class="tile-info-location">
+													<span class="glyphicon glyphicon-map-marker">&nbsp;</span>
+													Corporate Woods 
+												</p>
+												<p class="tile-info-copy">
+													<span class="themeicon themeicons-fundraising">&nbsp;</span>
+													Fundraising
+												</p>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/doctorsnotes" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/92527d5c-e79b-4af1-81b7-82e56f68de99fc3a1806-6f6d-4ecf-8437-fca6637adc55.jpg?preset=small-sq" alt="Doctor&#39;s Notes Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Doctor&#39;s Notes
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+					</slide>
+					<slide>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/www-jayhawkhealth-com" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/0019f79a-9e46-48d2-b6a5-6fa0286a6ac1a06b4977-340f-493a-8e77-a79bce64308f.jpg?preset=small-sq" alt="Jayhawk Healthcare Administrators Working for Kansas Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Jayhawk Healthcare Administrators Working for Kansas
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/KUSNA" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/clink/images/fc2cb2bd-3fe5-48a0-a5c6-ee3e37ce7f7b5e35ec37-bdf5-4d5a-a4fb-df582392ff7e.png?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/clink/images/fc2cb2bd-3fe5-48a0-a5c6-ee3e37ce7f7b5e35ec37-bdf5-4d5a-a4fb-df582392ff7e.png?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/c96b6265-095f-4cc2-96a7-efebc063536ac48df216-5e01-4a78-934e-1830c6433663.png?preset=small-sq" alt="Kansas University Student Nurses&#39; Association  Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Kansas University Student Nurses&#39; Association 
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/orthokusmw" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<div class="img-circle img-avatarinitials img-avatar__border"><span>O</span></div>
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Orthopedic Surgery and Sports Medicine Interest Group - Wichita
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/OSIG" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/47949d23-01e3-4f5e-9d49-2747643ae0e38a4ee2b9-4178-447f-aaaa-a66824c23564.jpg?preset=small-sq" alt="Oncology Student Interest Group Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Oncology Student Interest Group
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/EdSupport" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/85a244a2-c595-468a-87d4-51f0ee2a392f82d91f9d-c10f-498d-b7d1-23eaa9020044.jpg?preset=small-sq" alt="Educational Support Services Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Educational Support Services
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/kumcio" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/005cf756-083d-478c-a9bc-b92f5aec8b65899ba7ac-e81d-424e-beaf-bf8e240848ce.jpg?preset=small-sq" alt="KU Medical Center International Outreach Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													KU Medical Center International Outreach
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/psig" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/a1551179-b1f1-4347-b132-a244e57ba7bb834bb370-591e-4db6-85da-ba9dc53c53f8.jpg?preset=small-sq" alt="Pathology Student Interest Group Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Pathology Student Interest Group
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/SSIG" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/542f2df6-3752-4fd6-a950-a3c6763761b85c9313f5-8f30-4703-9183-4f30344787a5.png?preset=small-sq" alt="KUMC Super Smash Brothers Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													KUMC Super Smash Brothers
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+					</slide>
+					<slide>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/SIGRS" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/380a25d4-3ccb-4909-8d94-48ce5781733bb953d86d-8fbd-4310-bf57-8cc0a8572b45.jpg?preset=small-sq" alt="Student Interest Group in Rehabilitation Science Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Student Interest Group in Rehabilitation Science
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/fhip" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/362224db-b7f5-411d-8e86-4bafa1df719af03b8e13-d338-4bc6-a3e8-a842b9375956.jpg?preset=small-sq" alt="Future Health Information Professionals Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Future Health Information Professionals
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/EMIG" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/clink/images/6ba0cddd-8b02-4756-b9be-728baf2f2b5ae24c4ad9-a36c-48f1-9572-ba2cca7e18d9.png?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/clink/images/6ba0cddd-8b02-4756-b9be-728baf2f2b5ae24c4ad9-a36c-48f1-9572-ba2cca7e18d9.png?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/b0aee15e-34fd-405f-90dd-47ed95435b8cbe905351-d48a-4cb9-a363-ae8ca29865f9.jpg?preset=small-sq" alt="Emergency Medicine Interest Group Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Emergency Medicine Interest Group
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/sfc" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/830745f2-d88a-4c0a-bbc1-cf91564ae806cc89d841-8a66-4c3b-ac41-b9bdfc85484a.jpg?preset=small-sq" alt="Students for Choice Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Students for Choice
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/plsig" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/747247e1-7d93-4b96-85c0-1b58e381e7424dd78418-a445-419d-92e6-226efe94eb33.png?preset=small-sq" alt="Plastic Surgery Interest Group Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Plastic Surgery Interest Group
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/nurseanesthesia" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/55ad3ef2-5e01-4962-9de4-0b5a9bed3c70411e83cb-ce6e-45b0-b435-d5613406e4d1.jpg?preset=small-sq" alt="KU Nurse Anesthesia Student Association Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													KU Nurse Anesthesia Student Association
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/acmg" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/images/collegiatelink/default/org_cover_photo.jpg?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/11f62f53-f698-4b32-a12c-218e67af9565fee88198-f47a-4f28-a5e3-89f1bf8b11ba.png?preset=small-sq" alt="American College of Medical Genetics Student Interest Group Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													American College of Medical Genetics Student Interest Group
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+								<li class="col-xs-6 col-md-3 col-lg-3 section-tiles-tile">
+									<a href="https://kumc.collegiatelink.net/organization/SOS" >
+
+										<div class="tile-image themeborder-organization text-center"
+											 style="background-image: url('https://images.collegiatelink.net/clink/images/642c93ea-cd48-4fcb-b2d6-3e1ac4ea665ebe3bb84b-c77c-4460-bbab-262da075f4fc.png?preset=grey-med-rect'); background-image: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, .5)), url('https://images.collegiatelink.net/clink/images/642c93ea-cd48-4fcb-b2d6-3e1ac4ea665ebe3bb84b-c77c-4460-bbab-262da075f4fc.png?preset=grey-med-rect')">
+												<img class="img-circle img-avatar img-avatar__border" src="https://images.collegiatelink.net/clink/images/5e72ae5f-1945-443d-b68c-658ca7d3da40f90b1483-bc9d-4fe9-b4c6-d28bd1ffcf8a.jpg?preset=small-sq" alt="Student Organization for Surgery Profile Picture">
+
+											<div class="tile-info tile-info__organization col-xs-12 text-left">
+												<p class="tile-info-title tile-info-title__organization tile-info-tile">
+													Student Organization for Surgery
+												</p>
+											</div>
+										</div>
+									</a>
+
+								</li>
+					</slide>
+			</carousel>
+		</ul>
+	</div>
+</section>
+
+<script>
+	angular.element(document).ready(function() {
+		angular.module('cl.opportunityBoard', ['ui.bootstrap', 'ngTouch']);
+		angular.bootstrap(document.getElementById('opportunityBoard'), ['cl.opportunityBoard']);
+	});
+</script>
+
+<div class="mainStart-container">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<h3>Not sure where to start in The Beat@KUMC?</h3>
+				<h4>Choose an option to jumpstart your experience!</h4>
+			</div>
+		</div>
+		<div class="row mainStart-optionContainer">
+			<div class=" col-sm-4 mainStart-option">
+				<a href="/organizations" class="optionContainer" aria-label="Find an Organization">
+					<span class="icon-users mainStart-optionIcon"></span>
+					<span class="mainStart-optionBreak"></span>
+					<span class="mainStart-optionText">Find an Organization</span>
+				</a>
+			</div>
+			<div class=" col-sm-4 mainStart-option">
+				<a href="/events" class="optionContainer" aria-label="Find an Event">
+					<span class="icon-flag mainStart-optionIcon"></span>
+					<span class="mainStart-optionBreak"></span>
+					<span class="mainStart-optionText">Find an Event</span>
+				</a>
+			</div>
+			<div class=" col-sm-4 mainStart-option">
+				<a href="/involvement/currentmemberships" class="optionContainer" aria-label="My Involvement">
+					<span class="icon-star mainStart-optionIcon"></span>
+					<span class="mainStart-optionBreak"></span>
+					<span class="mainStart-optionText">My Involvement</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="corq-section-background">
+		<section class="container-fluid section-corq">
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-1">
+					<p class="section-corq-logo">
+						<img src="https://cdn2.campuslabs.com/assets/clink/v3.9/images/Corq_logo.png" alt="Corq App Logo" />
+					</p>
+					<ul class="list-unstyled section-corq-features">
+						<li>
+							<h3><span><i class="glyphicon glyphicon-list-alt"></i></span>Get the details</h3>
+							<p>From start time to ticket info get all of the details you need to know about your next adventure.</p>
+						</li>
+						<li>
+							<h3><span><i class="glyphicon glyphicon-map-marker"></i></span>Find your way</h3>
+							<p>Corq will bring you right to the door of an event whether it's a bike ride, road trip, or across the country.</p>
+						</li>
+						<li>
+							<h3><span><i class="glyphicon glyphicon-share"></i></span>Share your experience</h3>
+							<p>Get your friends involved by posting events that you are excited about to your favorite social media site.</p>
+						</li>
+					</ul>
+					<div class="section-corq-mobilebuttons">
+						<a href="https://play.google.com/store/apps/details?id=com.campuslabs.collegiatelink&hl=en">
+							<p class="googleappbutton"><span class="visuallyhidden">Download Corq from the Google Play Store</span></p>
+						</a>
+						<a href="https://itunes.apple.com/us/app/corq-by-collegiatelink/id940682997?ls=1&mt=8">
+							<p class="appleappbutton"><span class="visuallyhidden">Download Corq from the Aple App Store</span></p>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-5 corq-section-devices hidden-xs">
+					<img src="https://cdn2.campuslabs.com/assets/clink/v3.9/images/gs5cropped.png" class="section-corq-devices-left" alt="Corq displayed on Samsung Galaxy S5" />
+					<img src="https://cdn1.campuslabs.com/assets/clink/v3.9/images/iphone6Cropped.png" class="section-corq-devices-middle" alt="Corq displayed on iPhone 6" />
+					<img src="https://cdn1.campuslabs.com/assets/clink/v3.9/images/nexus5cropped.png" class="section-corq-devices-right" alt="Corq displayed on LG Nexus 5" />
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+		<footer class="container-fluid section-footer" role="contentinfo">
+			<div class="row">
+				<div class="col-xs-12 col-sm-5 col-sm-push-7 footer-signin">
+					    <a href="/account/logon" class="btn btn-primary btn-lg">Sign In</a>
+                  
+					
+				</div>
+
+				<div class="col-xs-12 col-sm-7 col-sm-pull-5 footer-copyright">
+					<p><strong>Powered by <a target="_blank" href="http://www.collegiatelink.net/">CollegiateLink</a>.</strong> CollegiateLink is part of <a target="_blank" href="http://www.campuslabs.com">Campus Labs</a>. &copy; Copyright 2016 Campus Labs.</p>
+				</div>
+			</div>
+		</footer>
+
+	<script type="text/javascript" src="//assets.zendesk.com/external/zenbox/v2.6/zenbox.js"></script>
+		<style type="text/css" media="screen, projection">
+			@import url(//assets.zendesk.com/external/zenbox/v2.6/zenbox.css);
+		</style>
+
+	<script type="text/javascript">
+	    $(function() {
+	        new MasterPage({
+	            showAdditionalFields : 'False',
+	            additionalFieldUrl : '/profile/requiredadditionalfields',
+	            translateEnabled : 'False'
+	        });
+	    });
+	    core.siteRoot = '/';
+	</script>
+
+
+	<script type="text/javascript" src="https://cdn2.campuslabs.com/assets/clink/v3.9/js/campuslabs.collegiatelink.usertoolbar.v3.9.097.js"></script>
+	<script type="text/javascript">
+		angular.element(document).ready(function() {
+			angular.module('cl.userToolBarConstants', []).value('userToolBarConstants', { enableKissmetricsTracking : 'False' === 'True' });
+			angular.bootstrap(document.getElementById('userToolBar'), ['cl.usertoolbar', 'cl.userToolBarConstants']);
+		});
+	</script>
+
+<script type="text/javascript" src="https://cdn1.campuslabs.com/assets/clink/v3.9/js/campuslabs.collegiatelink.corqSmartBanner.v3.9.097.js"></script>
+	
+
+	</body>
+</html>

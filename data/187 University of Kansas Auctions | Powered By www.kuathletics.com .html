@@ -1,0 +1,643 @@
+
+
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"d955319030","applicationID":"13739310","transactionName":"b1MBMEsEC0UHVxFZX1YZIjdpSgRDBUAMX15LGQIRWhEMWQgaBENAQA==","queueTime":31,"applicationTime":73,"ttGuid":"6CE1FCC6EE4A4BF7","agent":""}</script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(e,t){return function(){o(e,[(new Date).getTime()].concat(a(arguments)),null,t)}}var o=e("handle"),i=e(2),a=e(3);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var u=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(u,function(e,t){newrelic[t]=r(f+t,"api")}),i(c,function(e,t){newrelic[t]=r(f+t)}),t.exports=newrelic,newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),o("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(0>o?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?u(e,a,i):i()}function n(n,r,o){e&&e(n,r,o);for(var i=t(o),a=l(n),u=a.length,c=0;u>c;c++)a[c].apply(i,r);var s=f[g[n]];return s&&s.push([m,n,r,i]),i}function p(e,t){w[e]=l(e).concat(t)}function l(e){return w[e]||[]}function d(e){return s[e]=s[e]||o(n)}function v(e,t){c(e,function(e,n){t=t||"feature",g[n]=t,t in f||(f[t]=[])})}var w={},g={},m={on:p,emit:n,get:d,listeners:l,context:t,buffer:v};return m}function i(){return new r}var a="nr@context",u=e("gos"),c=e(2),f={},s={},p=t.exports=o();p.backlog=f},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!w++){var e=v.info=NREUM.info,t=s.getElementsByTagName("script")[0];if(e&&e.licenseKey&&e.applicationID&&t){c(l,function(t,n){e[t]||(e[t]=n)});var n="https"===p.split(":")[0]||e.sslForHttp;v.proto=n?"https://":"http://",u("mark",["onload",a()],null,"api");var r=s.createElement("script");r.src=v.proto+e.agent,t.parentNode.insertBefore(r,t)}}}function o(){"complete"===s.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=window,s=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},e(1);var p=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},d=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),v=t.exports={offset:a(),origin:p,features:{},xhrWrappable:d};s.addEventListener?(s.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(s.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),u("mark",["firstbyte",a()],null,"api");var w=0},{}]},{},["loader"]);</script><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="//assets.sidearmsports.com.s3.amazonaws.com/foundation/js/modernizr.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js" type="text/javascript"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.6.0/moment.min.js"></script>
+    <script src="//assets.sidearmsports.com.s3.amazonaws.com/common/js/countdown.min.gz.js"></script>
+    <script src="//assets.sidearmsports.com.s3.amazonaws.com/common/js/moment-countdown.min.gz.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+
+    <link rel="stylesheet" href="//assets.sidearmsports.com.s3.amazonaws.com/foundation/v5.4.5/css/normalize.min.css" /><link rel="stylesheet" href="//assets.sidearmsports.com.s3.amazonaws.com/foundation/v5.4.5/css/foundation.min.css" /><link rel="Stylesheet" href="//fonts.sidearmsports.com/sidearm/sidearm_font.css" /><link rel="Stylesheet" href="less/auction.less" type="text/css" /><link rel="shortcut icon" href="/images/favicon.ico" type="image/vnd.microsoft.icon" />
+        <script src="/auctions/js/auction.js?_=635603919932139036"></script>
+        <title>University of Kansas Auctions | Powered By www.kuathletics.com</title>
+    <meta property="og:title" content="University of Kansas Auctions - Allen Fieldhouse Brick"></meta><meta property="og:type" content="product.item"></meta><meta property="og:image" content="http://kuathletics.com//images/2015/10/5/Brick_Crop.jpg?width=400&amp;height=400&amp;mode=max&amp;scale=both"></meta><meta property="og:url" content="http://kuathletics.com/auctions/auction.aspx?id=57"></meta><meta property="og:description" content="Opened in 1955, Phog Allen Fieldhouse is one of the oldest basketball arenas in the country. It has been home to some of the greatest coaches and players in the history of college basketball. Since it was built, Kansas Basketball has had one of the best home records (728-109) in the nation, truly making it one of the hardest places to play.&lt;br />&lt;br /> "></meta><meta name="twitter:card" content="summary"></meta><meta name="twitter:title" content="University of Kansas Auctions - Allen Fieldhouse Brick"></meta><meta name="twitter:description" content="Opened in 1955, Phog Allen Fieldhouse is one of the oldest basketball arenas in the country. It has been home to some of the greatest coaches and players in the history of college basketball. Since it was built, Kansas Basketball has had one of the best home records (728-109) in the nation, truly making it one of the hardest places to play.&lt;br />&lt;br /> "></meta><meta name="twitter:image" content="http://kuathletics.com//images/2015/10/5/Brick_Crop.jpg?width=200&amp;height=200&amp;mode=crop&amp;scale=both"></meta><meta name="twitter:url" content="http://kuathletics.com/auctions/auction.aspx?id=57"></meta><script>window.client_hostname = "www.kuathletics.com";window.client_division = "DI";window.targetting_criteria = {"page_template":"unknown","sport_name":"0","sport_name_custom":"0","site":"ku","content_id":null,"sect":"ot"};window.client_shortname = "ku";window.dfp_network_code = "4177";window.img_dfp_unit_name = "/KANS";</script><!-- Begin comScore Tag -->
+<script>
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "19291688" });
+(function() {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=19291688&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag --><title>
+
+</title></head>
+<body data-bind="css: { 'processing': processing }">
+    <form name="aspnetForm" method="post" action="auction.aspx?id=57" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUILTQyNzg1OTRkZJYHW5OC7HbI7Fhr175yp8byYxAq" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+	<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+</div>
+
+		<div class="alert" data-bind="css: { 'open': processing }">
+            Processing your request...
+        </div>
+		
+        <header class="header row" role="banner">            
+            <div class="small-3 columns">
+                <div class="logo pull-left pull-right">
+                    <a href="index.aspx"><img src="/images/logos/site/site.png" alt="Banner" /></a>
+                </div>                
+            </div>
+            <div class="banner small-9 columns">
+                <hgroup>
+                    <h1>University of Kansas Auctions</h1>
+                    <h2>Powered By www.kuathletics.com</h2> 
+                </hgroup>                 
+
+                <div class="quick-links hide-while-loading" data-bind="css: { authenticated: userModel.id > 0 }">
+					<ul>
+                        <li data-bind="with: cartModel" class="cart-btn">
+                            <a href="cart.aspx"><i class="icon-shop-icon"></i><span>Cart: <span data-bind="text: cart_item().length"></span> items in cart.</span><span class="cart-count" data-bind="visible: cart_item().length, text: cart_item().length"></span></a>
+                        </li>
+                        <li data-bind="with: userModel" class="account-btn">
+                             <!-- ko if: id > 0 -->
+                                <a class="settings"><i class="icon-settings"></i></a>
+                                <ul>
+                                    <li><a data-bind="click: function() { $root.show_processing(); update_profile(); }" href="#">My account</a></li>
+									<li><a href="/auctions/orders.aspx">My Orders</a></li>
+                                    <li><a href="account.aspx?retUrl=/auctions/auction.aspx?id=57">Settings</a></li>       
+                                    <li><a data-bind="click: function() { $root.show_processing(); logout(); }" href="#">Log Out</a></li>                          
+                                </ul>
+                            <!-- /ko -->
+                            <!-- ko ifnot: id > 0 -->
+                                <a data-bind="click: function() { $root.show_processing(); login(); }" href="#"><i class="icon-individual"></i><span>Log In</span></a>
+                            <!-- /ko -->
+                        </li>
+                    </ul> 
+                </div>
+				<i class="icon-menu"></i>
+            </div>
+        </header>
+
+        <nav class="nav row" role="navigation">
+			<div class="search left">
+                <div onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_gosearch')">
+	
+                    <label for="ctl00_search" class="hide">Search For Auctions:</label>
+                    <input name="ctl00$search" type="text" value="Search..." id="ctl00_search" />
+                    <input type="submit" name="ctl00$gosearch" value="Go" id="ctl00_gosearch" />
+                
+</div>
+            </div>
+            
+
+<ul>
+    <li><a href="/auctions">Featured</a></li>
+
+	
+                <li>
+                    <a href="http://kuathletics.com/floor.aspx">Customized Floor</a>
+                </li>
+            
+                <li>
+                    <a href="http://kuathletics.com/auctions/index.aspx?category=7">Floor Store</a>
+                </li>
+            
+                <li>
+                    <a href="http://kuathletics.com/sports/2013/6/21/GEN_0621133850.aspx">Pavers</a>
+                </li>
+            
+				
+    <li class="parent categories">
+        <a href="#">Categories <i class="icon-angle-down"></i></a>
+		
+			<ul>
+			
+				<li ><a href="/auctions/index.aspx?category=1">Memorabilia</a></li>
+			
+				<li ><a href="/auctions/index.aspx?category=2">Player Apparel</a></li>
+			
+				<li ><a href="/auctions/index.aspx?category=4">Experiences</a></li>
+			
+				<li ><a href="/auctions/index.aspx?category=7">Floor Store</a></li>
+			
+			</ul>
+		
+    </li>
+
+	
+</ul>
+			<ul data-bind="with: userModel" class="mobile-account">
+                <!-- ko if: id > 0 -->
+                    <li><a data-bind="click: function() { $root.show_processing(); update_profile(); }" href="#"><i class="icon-individual"></i> My account</a></li>
+                    <li><a href="/auctions/orders.aspx"><i class="icon-list"></i> My Orders</a></li>
+                    <li><a href="account.aspx?retUrl=/auctions/auction.aspx?id=57"><i class="icon-settings"></i> Settings</a></li>       
+                    <li><a data-bind="click: function() { $root.show_processing(); logout(); }" href="#"><i class="icon-twitter-reply"></i> Log Out</a></li>                          
+                <!-- /ko -->
+                <!-- ko ifnot: id > 0 -->
+                    <li><a data-bind="click: function() { $root.show_processing(); login(); }" href="#"><i class="icon-individual"></i><span>Log In</span></a></li>                    
+                <!-- /ko -->
+            </ul>
+        </nav>
+
+        <main class="main row">
+            
+
+    <div data-bind="visible: loading">
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+    </div>
+
+    <article class="row view hide-while-loading">
+    
+        <div class="large-4 columns">
+            <!-- ko if: is_auction -->
+                <div class="timer">
+                    <label>Time Remaining:</label>
+                    <ul>
+                        <li>
+                            <span data-bind="text: days"></span>
+                            <span>Days</span>
+                        </li>
+                        <li>
+                            <span data-bind="text: hours"></span>
+                            <span>Hours</span>
+                        </li>
+                        <li>
+                            <span data-bind="text: mins"></span>
+                            <span>Mins</span>
+                        </li>
+                        <li>
+                            <span data-bind="text: secs"></span>
+                            <span>Secs</span>
+                        </li>
+                    </ul>
+                </div>
+            <!-- /ko -->
+            <div class="auction-media">                
+                <ul data-bind="foreach: media">
+                    <li><img data-bind="attr: { src: thumbnails.large.filename, alt: alt_text }" /></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="large-8 columns">
+        
+            <div class="auction-container">
+
+                <h2 data-bind="text: title"></h2>
+				
+				<div class="addthis_toolbox addthis_default_style addthis_32x32_style" data-bind="attr: { 'addthis:url': 'http://kuathletics.com/auctions/auction.aspx?id=' + id, 'addthis:title': ' ' + title }">
+					<a class="addthis_button_facebook"></a>
+					<a class="addthis_button_twitter"></a>
+					<a class="addthis_button_email"></a>
+					<a class="addthis_button_compact"></a>
+				</div>
+				
+                <p data-bind="html: description"></p>
+
+                <!-- ko if: is_auction -->
+
+                    <section class="details">
+						<h3>Details</h3>
+                        <dl>
+							<dt>Starting Date</dt>
+                            <dd><span data-bind="formatDate: start_date, showTime: true"></span> <span data-bind="text: time_zone"/></dd>
+							
+							<dt>Closing Date</dt>
+                            <dd><span data-bind="formatDate: end_date, showTime: true"></span> <span data-bind="text: time_zone"/></dd>
+							
+							<dt>Starting Price</dt>
+							<dd><span data-bind="formatCurrency: starting_price"></span></dd>
+							
+							<dt>Bid Increment</dt>
+							<dd><span data-bind="formatCurrency: increment_amount"></span></dd>	
+
+							<dt>Categories</dt>
+							<dd>
+							<!-- ko if: categories -->
+								<!-- ko foreach: categories -->
+									<a data-bind="attr: { 'href': 'index.aspx?category=' + category_id }, text: category_display_title"></a>
+								<!-- /ko -->
+							<!-- /ko -->
+							<!-- ko ifnot: categories -->
+								N/A
+							<!-- /ko -->
+							</dd>
+						</dl>
+					</section>
+
+                    <!-- ko if: hasAuctionEnded -->
+                        <div class="panel" data-bind="css: bid_class">
+                            <div class="row">
+                                <div class="large-3 medium-3 columns">
+									<label for="auction-bid-input">Winning Bid:</label>
+								</div>
+								<div class="large-9 medium-9 columns">
+									<!-- ko if: current_bid -->
+                                        <strong data-bind="formatCurrency: current_bid().amount "></strong>                                  
+										
+										<!-- ko if: is_user_highest_bidder -->
+                                        <div class="row collapse">    
+                                            <!-- ko if: is_reserve_price_met -->
+                                                <p>Congratulations, you've won the auction!</p>
+                                                <!-- ko if: current_bid().amount < 1000  -->
+                                                <p><input type="submit" name="ctl00$ContentPlaceHolder1$btn_continue_to_cart" value="Continue to Shopping Cart" id="ctl00_ContentPlaceHolder1_btn_continue_to_cart" class="button" /></p>
+                                                <!-- /ko -->
+                                            <!-- /ko -->
+                                            <!-- ko ifnot: is_reserve_price_met -->
+                                                <p>Sorry, your bid did not meet the reserve price. This auction has now ended.</p>
+                                            <!-- /ko -->
+                                        </div> 
+										<!-- /ko -->  
+										
+										<!-- ko ifnot: is_user_highest_bidder -->
+                                        <div class="row collapse">    
+                                            <p>Sorry, this auction has now ended.</p>                                                         
+                                        </div> 
+										<!-- /ko -->  
+                                    <!-- /ko -->
+									
+									<!-- ko ifnot: current_bid -->
+										<div class="row collapse">    
+											<p>Sorry, this auction has now ended.</p>                                                 
+                                        </div> 
+									<!-- /ko -->
+								</div>
+							</div>
+						</div>
+                    <!-- /ko -->
+                
+                
+                    
+                    <!-- ko ifnot: hasAuctionEnded -->
+						
+						<div class="timer">
+							<ul>
+								<li>
+									<span data-bind="text: days"></span>
+									<span>Days</span>
+								</li>
+								<li>
+									<span data-bind="text: hours"></span>
+									<span>Hours</span>
+								</li>
+								<li>
+									<span data-bind="text: mins"></span>
+									<span>Mins</span>
+								</li>
+								<li>
+									<span data-bind="text: secs"></span>
+									<span>Secs</span>
+								</li>
+							</ul>
+						</div>
+
+						<div class="panel" data-bind="attr: { 'class': 'panel ' + bid_class() }, css: { 'refreshing': isRefreshing }">
+                       		<div class="row">
+                                <div class="large-3 medium-3 columns">
+                                    <!-- ko if: current_bid -->
+                                        <label for="auction-bid-input">Current Bid:</label>
+										<!-- ko if: userModel.id > 0 -->
+											<a class="refresh-bids" data-bind="click: refreshBids">(<i class="icon-arrows-cw"></i> Refresh)</a>
+										<!-- /ko -->
+                                    <!-- /ko -->
+                                    <!-- ko ifnot: current_bid -->
+                                        <label for="auction-bid-input">Starting Price:</label>
+                                    <!-- /ko -->    
+                                </div>
+                                <div class="large-9 medium-9 columns">
+                                    <!-- ko if: current_bid -->
+                                        <strong data-bind="formatCurrency: current_bid().amount "></strong>
+                                        (<span data-bind="text: bids_count"></span> bids)
+                                        <div class="history">
+											<!-- ko if: bids()[0].amount > current_bid().amount && bids()[0].person_id === userModel.id -->
+												<p>Your max bid is <span data-bind="formatCurrency: bids()[0].amount" ></span></p>
+											<!-- /ko -->
+											<!-- ko ifnot: is_user_highest_bidder && ko.utils.arrayFirst(bids(), function (item) { return item.person_id == viewModel.userModel.id; }) == null -->
+												<p>Your last bid was <span data-bind="formatCurrency: ko.utils.arrayFirst(bids(), function (item) { return item.person_id == userModel.id; }).amount" ></span></p>
+											<!-- /ko -->
+										</div>
+                                    <!-- /ko -->
+
+                                    <!-- ko ifnot: current_bid -->
+                                        <span data-bind="formatCurrency: starting_price"></span>
+                                        (0 bids)
+                                    <!-- /ko -->
+									
+									<!-- ko if: reserve_price != null -->
+										<!-- ko if: is_reserve_price_met -->
+											<p class="reserve met has-tip"><i class="icon-ok-circled"></i> Reserve price has been met!</p>
+										<!-- /ko -->
+										<!-- ko ifnot: is_reserve_price_met -->
+											<p class="reserve not-met has-tip" data-tooltip aria-haspopup="true" title="A reserve price is the lowest price the seller is willing to accept for the item. Unless that price is met, the item will not sell when the auction ends."><i class="icon-warning"></i> Reserve price has not been met.</p>
+										<!-- /ko -->	
+									<!-- /ko -->
+                                    
+                                    <!-- ko if: userModel.id > 0 -->
+                                        <div class="row collapse bid-entry">
+                                            <div class="small-6 medium-6 large-4 columns">
+                                                <input type="text" class="auction-bid-input" placeholder="Enter your bid...">
+                                            </div>  
+                                            <div class="small-6 medium-6 large-4 left columns">
+                                                <button data-bind="click: placeBid, clickBubble: false, text: button_text" class="place-bid button postfix"></button>
+                                            </div>                                  
+                                        </div>        
+                                        <div class="row collapse">
+											<label for="auction-bid-input" class="">
+												<em>Enter $<span data-bind="text: minimum_bid"></span> or higher...</em>
+											</label>
+											
+											<!-- ko if: is_user_highest_bidder -->
+												<p><strong>You are currently the highest bidder!</strong></p>
+											<!-- /ko -->											
+											
+											<p class="outbid-message"><strong>You've been outbid!</strong></p>
+                                            
+                                            <small data-bind="visible: minimum_not_exceeded" class="error">Your bid did not exceed the minimum required amount!</small>
+                                            <small data-bind="visible: invalid_bid" class="error">Your bid was invalid, please try again!</small>
+                                        
+											<p class="has-tip" data-tooltip aria-haspopup="true" title="When you place a bid, enter the highest amount you are willing to pay for the item. Your bid will start at the current amount. If you are outbid, a bid will automatically be placed on your behalf, in increments of the amount specified by the seller, up to your maximum bid."><i class="icon-help-circled"></i> What is a "maximum bid"?</p>
+										</div>   
+										
+										<script>
+											$('.auction-bid-input').keydown(function(e) {
+												if (e.keyCode == 13) {
+													e.preventDefault();
+													e.stopPropagation();
+													$('.place-bid').trigger('click');
+												}
+											});
+										</script>
+                                    <!-- /ko -->
+                                    
+                                    <!-- ko ifnot: userModel.id > 0 -->
+                                        <div class="row collapse not-logged-in">    
+                                            You must <em><a data-bind="click: function() { $root.show_processing(); userModel.login(); }">log in</a></em> before you can place a bid!                                                           
+                                        </div> 
+                                    <!-- /ko -->                     
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ko if: showBuyItNow -->
+                            <div class="panel">
+                                <div class="row">
+                                    <div class="large-3 medium-3 columns">
+                                        <label>Buy It Now:</label>
+                                    </div>
+                                    <div class="large-9 medium-9 columns">
+                                        <strong data-bind="formatCurrency: buy_it_now_price"></strong>
+                                        (<span data-bind="text: current_sku().inventory"></span> items remaining)
+                                
+                                        <br /><br />
+                                        <!-- ko if: userModel.id > 0 -->
+											<div class="row collapse">
+												<div class="small-6 medium-6 large-4 columns">
+													<select data-bind="options: inventory, value: quantity"></select>
+												</div>  
+
+												<div class="small-6 medium-6 large-4 left columns">
+													<button data-bind="disable: out_of_stock, click: addToCart.bind($data,'buy_it_now')" class="button postfix">Add to Cart</button>
+												</div>                                
+											</div>    
+										<!-- /ko -->
+										<!-- ko ifnot: userModel.id > 0 -->
+											<div class="row collapse not-logged-in">    
+												You must <em><a data-bind="click: function() { $root.show_processing(); userModel.login(); }">log in</a></em> before you can buy this item!                                                           
+											</div> 
+										<!-- /ko -->                          
+                                    </div>                        
+                                </div>
+                            </div>
+                        <!-- /ko -->
+                    <!-- /ko -->
+                
+                    
+
+                <!-- /ko -->
+                
+
+                <!-- ko ifnot: is_auction -->
+
+                        <div class="panel clearfix">
+                            <div class="row">
+                                <div class="large-4 medium-4 columns">
+                                    <label class="text-right">Price:</label>
+                                </div>
+                                <div class="large-8 medium-8 columns">
+                                    <strong data-bind="formatCurrency: fixed_price"></strong>
+                                </div>
+                            </div>
+                            <br /><br />
+                        
+                            <!-- ko foreach: variations -->
+                                <div class="row">
+                                    <div class="large-4 medium-4 columns">
+                                        <label class="text-right inline" data-bind="text: title"></label>
+                                    </div>
+                                    <div class="large-8 medium-8 columns">
+                                        <select class="product-variation" data-bind="options: $data.options, optionsText: 'value', optionsValue: 'id', event: { change: variationChanged }, attr: { 'data-variation-id': id }"></select>
+                                    </div>
+                                </div>  
+                            <!-- /ko -->
+
+                            <div class="row">
+                                <div class="large-4 medium-4 columns">
+                                    <label class="text-right inline">Qty:</label>
+                                </div>
+                                <div class="large-8 medium-8 columns">
+                                    <select data-bind="options: inventory, value: quantity"></select>
+                                    <small data-bind="visible: out_of_stock" class="error">Out of stock!</small>
+                                </div>
+                            </div>
+                            <!-- ko if: userModel.id > 0 -->
+								<button data-bind="disable: out_of_stock, click: addToCart.bind($data,'fixed_price')" class="button right">Add to Cart</button>
+							<!-- /ko -->
+							<!-- ko ifnot: userModel.id > 0 -->
+								<div class="row collapse not-logged-in right">    
+									You must <em><a data-bind="click: function() { $root.show_processing(); userModel.login(); }">log in</a></em> before you can buy this item!                                                           
+								</div> 
+							<!-- /ko -->
+						</div>
+                <!-- /ko -->
+            </div>        
+        </div>
+        
+    </article>
+	
+	<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-4a7320e7645958d0" async="async"></script>
+	
+	<div id="fb-root"></div>
+	<script>	    (function (d, s, id) {
+	        var js, fjs = d.getElementsByTagName(s)[0];
+	        if (d.getElementById(id)) return;
+	        js = d.createElement(s); js.id = id;
+	        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+	        fjs.parentNode.insertBefore(js, fjs);
+	    } (document, 'script', 'facebook-jssdk'));</script>
+	
+	<script>	    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } } (document, 'script', 'twitter-wjs');</script>
+    
+	<script src="//assets.sidearmsports.com.s3.amazonaws.com/common/js/jquery.zoom.min.gz.js"></script>
+    <script>
+
+        $(function () {
+            $.fn.image_zoom = function() {
+
+                return this.each(function() {
+                    var $container = $(this),
+                        $ul = $container.find('ul'),
+                        images = $ul.find('img'),
+                        $selected = $container.prepend("<div class='selected-image' />").find('.selected-image');
+
+                    if (images.length > 0) {
+                        $selected.append($(images[0]).clone()).zoom();
+
+                        $.each(images, function(index, image) {
+                            var $img = $(image);
+                            $img.click(function() {
+                                $selected.empty().append($img.clone()).zoom();
+                            });
+                        });
+						
+						if (images.length == 1) 
+							$ul.hide();
+                    }
+                });
+            };
+
+			$.when($('.hide-while-loading').hide(), getUser(), getCart(), getAuction(57)).done(function () { 
+                ko.applyBindings(viewModel); 
+                $('.hide-while-loading').fadeIn();
+                $('.auction-media').image_zoom(); 
+                addthis.toolbox('.addthis_toolbox');
+            });
+        });
+        
+    </script>
+
+
+
+        </main>    
+        
+        <footer class="footer row">             
+            <div class="ad">
+    <div id="ctl00_ctl12_enhancedAds" class="echads" data-location="198"></div>
+    <a id="ctl00_ctl12_enhancedAdsDummy" style="display:none;"></a>
+    
+
+
+
+
+  
+
+
+
+    
+</div>
+            <div class="ad">
+    <div id="ctl00_ctl13_enhancedAds" class="echads" data-location="199"></div>
+    <a id="ctl00_ctl13_enhancedAdsDummy" style="display:none;"></a>
+    
+
+
+
+
+  
+
+
+
+    
+</div>
+            <div class="ad">
+    <div id="ctl00_ctl14_enhancedAds" class="echads" data-location="200"></div>
+    <a id="ctl00_ctl14_enhancedAdsDummy" style="display:none;"></a>
+    
+
+
+
+
+  
+
+
+
+    
+</div>
+            <div class="ad">
+                <a href="//sidearmsports.com">
+                    <img src="//assets.sidearmsports.com.s3.amazonaws.com/images/sidearm-logo-horizontal.png" alt="SIDEARM Sports" />
+                </a>
+                <p>
+                    Powered By SIDEARM Sports
+                </p>
+            </div>        
+
+			<ul>
+                <li><a href="/auctions/terms.aspx">Terms & Conditions</a></li>
+                <li><a href="/auctions/faq.aspx">FAQ</a></li>
+                <li><a target="_blank" href="http://www.sidearmsports.com/privacypolicy/">Privacy Policy</a></li>
+            </ul> 
+        </footer>
+
+		<div class="overlay"></div>
+		
+		<!--[if lt IE 9]>
+			<div class="ie8-background">
+				<div class="ie8-message">
+					<h1>Your version of Internet Explorer is out of date!</h1>
+					<p>
+						To get the best possible experience using this website, it is recommended that you <a href="http://browsehappy.com/" target="_blank">upgrade to a newer version or different browser</a>.
+					</p>
+				</div>
+			</div>
+		<![endif]-->
+    
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=xsmTYCrZr5HgTkLVBk4MnBCjEA9nCI2Vig7q6N-UW9rI1XmM1o_CUHG7qdkLKPBp9k94irnDoS7LTVrpncrF-kT2Zi41&amp;t=635588402547524888" type="text/javascript"></script>
+
+<script type="text/javascript">$(function(){$("#ctl00_ctl12_enhancedAds").adSpot({"path":"","rotate":0});});</script><script type="text/javascript">$(function(){$("#ctl00_ctl13_enhancedAds").adSpot({"path":"","rotate":0});});</script><script type="text/javascript">$(function(){$("#ctl00_ctl14_enhancedAds").adSpot({"path":"","rotate":0});});</script></form>
+
+	<script src="/auctions/js/jquery.touchSwipe.min.js"></script>
+    <script src="//assets.sidearmsports.com.s3.amazonaws.com/foundation/v5.4.5/js/foundation.min.js"></script>
+    <script>
+        $(document).foundation();
+		$('#ctl00_search').focus(function () { $(this).val(''); });
+        $('.icon-menu').click(openMobileMenu);
+        $('.overlay').click(closeMobileMenu);
+		
+		$(window).swipe({
+			swipeLeft: openMobileMenu,
+			swipeRight:closeMobileMenu
+		});
+    </script>
+</body>
+</html>
