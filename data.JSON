@@ -1,0 +1,47 @@
+{"in":{"df":3,"tf":3,"postings": 
+[{ "docId":1,"docTf":1,"positions": [5] }
+,{ "docId":2,"docTf":1,"positions": [5] }
+,{ "docId":3,"docTf":1,"positions": [5] }
+]},
+"shipment":{"df":2,"tf":2,"postings": 
+[{ "docId":1,"docTf":1,"positions": [1] }
+,{ "docId":3,"docTf":1,"positions": [1] }
+]},
+"truck":{"df":3,"tf":3,"postings": 
+[{ "docId":2,"docTf":1,"positions": [8] }
+,{ "docId":3,"docTf":1,"positions": [7] }
+,{ "docId":4,"docTf":1,"positions": [1] }
+]},
+"fire":{"df":1,"tf":1,"postings": 
+[{ "docId":1,"docTf":1,"positions": [7] }
+]},
+"arrived":{"df":3,"tf":3,"postings": 
+[{ "docId":2,"docTf":1,"positions": [4] }
+,{ "docId":3,"docTf":1,"positions": [4] }
+,{ "docId":4,"docTf":1,"positions": [2] }
+]},
+"silver":{"df":1,"tf":2,"postings": 
+[{ "docId":2,"docTf":2,"positions": [7, 3] }
+]},
+"damaged":{"df":2,"tf":2,"postings": 
+[{ "docId":1,"docTf":1,"positions": [4] }
+,{ "docId":4,"docTf":1,"positions": [3] }
+]},
+"gold":{"df":2,"tf":2,"postings": 
+[{ "docId":1,"docTf":1,"positions": [3] }
+,{ "docId":3,"docTf":1,"positions": [3] }
+]},
+"a":{"df":3,"tf":3,"postings": 
+[{ "docId":1,"docTf":1,"positions": [6] }
+,{ "docId":2,"docTf":1,"positions": [6] }
+,{ "docId":3,"docTf":1,"positions": [6] }
+]},
+"of":{"df":3,"tf":3,"postings": 
+[{ "docId":1,"docTf":1,"positions": [2] }
+,{ "docId":2,"docTf":1,"positions": [2] }
+,{ "docId":3,"docTf":1,"positions": [2] }
+]},
+"delivery":{"df":1,"tf":1,"postings": 
+[{ "docId":2,"docTf":1,"positions": [1] }
+]}
+}

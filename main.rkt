@@ -1,4 +1,8 @@
 #lang plai
+(require net/url)
+(require 2htdp/batch-io)
+
+
 
 ;(load "data/hashT.rkt")
 ;;;;;;; INSTRUCTIONS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -91,8 +95,8 @@
  (de-tag (flatten (map tokenize-string (trim (prep file-name))))))
 
 (define (proc file-name)
-  (remove-stops (pre-proc file-name)))
-  ;(pre-proc file-name))
+  ;(remove-stops (pre-proc file-name)))
+  (pre-proc file-name))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Term Statistics ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-type Stat
@@ -381,36 +385,101 @@
      (cons (a-rec start (car sim)) (make-sim-list (cdr sim) (+ 1 start)))]))
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; TERM PROXIMITY PROCESSING & SCORING ;;;;;;;;;;;;;;;;;;;;;;;;;
-(define-type Doc-Prox
-  (no-prox)
-  (proximity (doc number?) (score number?)))
-
-(define (prox-score doc terms)
-  (cond
-    [(null? terms) '()]
-    [else
-     (cons
-       (if (equal? (hash-ref (stat-postings (get-stat (car terms))) doc [(lambda ()#f)]) #f)
-           ;The word is not in the document >>
-           -1
-           ;The word is in the document >>
-           (tf-pos-list-positions (hash-ref (stat-postings (get-stat (car terms))) doc )))
-       (prox-score doc (cdr terms)))]))
-
-;(define (compare-lists term1 term2)
- ; (cond
-  ;  [(and (null? term1) (null? term2)) 0]
-   ; [
-    ;[else
-     ;(car term1)
-
-
-    ;])
-
-  ;)
-
-;;;;;;;;;;;;; BUILD SEARCH ENGINE ::::::::::::::::::::::::::
+;;;;;;;;;;;;; BUILD SEARCH ENGINE ::::::::::::::::::::::::::;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (build-engine)
   (begin (index)
          (vectorize)))
+
+
+;;;;;;;;;;;;;;; Export Engine ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(define (export)
+  (begin (build-engine)
+         (write-terms)
+         (write-dict)
+         (write-vectors)))
+
+;; With a helper, produces a list of dictionary terms with their idf values for JavaScript
+(define (write-terms)
+  (write-file "terms.JSON" (write-terms-helper (dictionary-terms) "{")))
+
+;; With helpers, produces a JSON object representation of the dictionary for JavaScript
+(define (write-dict)
+  (write-file "data.JSON" (dictionary-to-string (dictionary-terms) "{")))
+
+;; With a helper, produces a JSON object representation of the document vectors for JavaScript
+(define (write-vectors)
+  (write-file "vectors.JSON" (vectors-to-string (hash-keys vectors) "{")))
+
+;; Accepts a scheme list of terms and produces a comma separated sequence
+(define (write-terms-helper lst str)
+(cond
+  [(null? lst) str]
+  [(null? (cdr lst)) (write-terms-helper (cdr lst) (string-append str "\"" (car lst) "\" : " (number->string (idf (car lst))) "}"))]
+  [else  (write-terms-helper (cdr lst) (string-append str "\"" (car lst) "\" : " (number->string (idf (car lst))) ",\n"))]))
+
+
+;; Produces a string representing JSON object of Dictionary terms
+(define (dictionary-to-string terms str)
+  (cond
+    [(null? terms) str]
+    ;; If this is the last term, a comma is not neded at the end
+    [(null? (cdr terms))
+     (local [(define current (hash-ref dictionary (car terms)))]
+       (dictionary-to-string (cdr terms)
+                             (string-append str "\""(car terms) "\":"
+                                            "{\"df\":"(number->string (stat-docFreq current)) ","
+                                            "\"tf\":" (number->string (stat-termFreq current)) ","
+                                            "\"postings\": \n[" (postings-to-string "" (stat-postings current) (hash-keys (stat-postings current))) "\n]"  "}\n}")))]
+
+    ;; If this is not the last term, a comma is needed at the end
+    [else
+     (local [(define current (hash-ref dictionary (car terms)))]
+       (dictionary-to-string (cdr terms)
+                             (string-append str "\""(car terms) "\":"
+                                            "{\"df\":"(number->string (stat-docFreq current)) ","
+                                            "\"tf\":" (number->string (stat-termFreq current)) ","
+                                            "\"postings\": \n[" (postings-to-string "" (stat-postings current) (hash-keys (stat-postings current))) "\n]"  "},\n")))]))
+
+
+;; Produces JSON object notation for Posting Lists
+(define (postings-to-string str table keys)
+  (cond
+    [(null? keys) str]
+    ;;If the current key is the last key, no comma at the end.
+    [(null? (cdr keys)) 
+     (local [(define current (hash-ref table (car keys)))]
+     (postings-to-string (string-append
+                           str "{ \"docId\":" (number->string (car keys)) ","
+                           "\"docTf\":" (number->string (tf-pos-list-doc-term-freq current)) ","
+                           "\"positions\": [" (list-to-string (tf-pos-list-positions current) "" ) "] }")
+                          table
+                          (cdr keys)))]
+
+    ;; If the current key is not the last key, we need to add a comma at the end.
+    [else
+     (local [(define current (hash-ref table (car keys)))]
+     (postings-to-string (string-append
+                           str "{ \"docId\":" (number->string (car keys)) ","
+                           "\"docTf\":" (number->string (tf-pos-list-doc-term-freq current)) ","
+                           "\"positions\": [" (list-to-string (tf-pos-list-positions current) "" ) "] }\n,")
+                          table
+                          (cdr keys)))]))
+
+
+;; Takes a Scheme list and produces comma-separated string of its elements
+(define (list-to-string lst str)
+  (cond [(null? lst) str]
+        [(null? (cdr lst)) (list-to-string (cdr lst) (string-append str (number->string (car lst))))]
+        [else (list-to-string (cdr lst) (string-append str (number->string (car lst)) ", "))]))
+
+;; Produces a JSON representation of the document vectors
+(define (vectors-to-string keys str)
+  (cond [(null? keys) str]
+        [(null? (cdr keys)) (vectors-to-string
+                             (cdr keys)
+                             (string-append str "\"" (number->string (car keys)) "\": [" (list-to-string (hash-ref vectors (car keys)) "") "] }" ))
+                            ]
+        [else (vectors-to-string
+                             (cdr keys)
+                             (string-append str "\"" (number->string (car keys)) "\": [" (list-to-string (hash-ref vectors (car keys)) "") "],\n" ))
+                            ]))
