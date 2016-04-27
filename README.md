@@ -3,7 +3,7 @@
             
                     (seed '("http://www.example.com" "http://www.another.com")
         
-		The crawl can be started in two ways, there is a free crawl (no domain restriction)
+			The crawl can be started in two ways, there is a free crawl (no domain restriction)
     		Free crawl  :   (crawl  #no_of_pages)
         
                 There is also a restricted crawl
@@ -16,9 +16,9 @@
                 -----------------------------------
         
         STEP 2 : Run the "main.rkt" file. It will index all the documents and produce the following files in the "Exports/" directory. (may take a while depending on the heaviness & number of pages downloaded. Takes approximately 90 seconds for 100 pages.)
-			1. Vectors.JSON
-			2. idfvals.JSON
-			3. terms.txt
+				1. Vectors.JSON
+				2. idfvals.JSON
+				3. terms.txt
 		-----------------------------------
         
         STEP 3 : Copy all the 5 files created by Main.rkt & Spider.rkt to "gui/Index/"
