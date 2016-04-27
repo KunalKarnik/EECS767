@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Express Search</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="js/query.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="row">&nbsp;</div>
+	<div id="search_box_holder" style="margin:-15px;">
+		<div class="container">
+			<div class="row">&nbsp;</div>
+			<div class="row">&nbsp;</div>
+			<div class="row">&nbsp;</div>
+			<div class="jumbotron" style="width: 70%;margin: auto;">
+				<h1>Search away... </h1>
+				<input type="text" id="searchbox" placeholder="Search..." style="background-color :#F2FBEF; padding: 10px;margin: 10px;" onKeyDown="init(event.keyCode);">
+				<a class="btn btn-success" onclick="init()" style="margin: 10px;">Search</a>
+			</div>
+		</div>
+	</div>	
+	<div class="container">
+		<div id="results" style="width: 50%;">
+		</div>		
+	</div>
+	<nav class="navbar navbar-inverse" style="position: fixed;bottom: 0px; height: 50px;width: 110%;padding: 0px;margin: 0px;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+      <div id="secret" style="display: none;"></div>
+    </nav>
+</body>
+</html>

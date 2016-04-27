@@ -1,9 +1,6 @@
 #lang plai
 (require net/url)
 (require 2htdp/batch-io)
-
-
-
 ;(load "data/hashT.rkt")
 ;;;;;;; INSTRUCTIONS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Upon running this code in DrRacket, it takes about 110-120 seconds to read in, parse
@@ -95,8 +92,8 @@
  (de-tag (flatten (map tokenize-string (trim (prep file-name))))))
 
 (define (proc file-name)
-  ;(remove-stops (pre-proc file-name)))
-  (pre-proc file-name))
+  (remove-stops (pre-proc file-name)))
+  ;(pre-proc file-name))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Term Statistics ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define-type Stat
@@ -290,7 +287,6 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;; QUERY Vectorization;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(define q1 '("gold" "silver" "truck"))
 (define cross (dictionary-terms))
 
 (define (make-list size)
@@ -348,7 +344,7 @@
 
 ;; Main search function for similarities 
 (define (search query)
-  (time (name-it (get-top-x 10 (qsort (make-sim-list (search-helper (vectorize-query (prep-query query)) (make-list-doc 0 (length universe))) 1))))))
+  (time (name-it (qsort (make-sim-list (search-helper (vectorize-query (prep-query query)) (make-list-doc 0 (length universe))) 1)))))
 
 ;; Sort sim list
 (define (qsort a)
@@ -394,29 +390,56 @@
 ;;;;;;;;;;;;;;; Export Engine ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (define (export)
   (begin (build-engine)
+         (display "******* Milestone 1 : Completed building the engine. ************")
          (write-terms)
-         (write-dict)
-         (write-vectors)))
+         (display "******* Milestone 2 : Finished writing terms  *******************")
+         (write-term-idfs)
+         (display "******* Milestone 3 : Finished writing term-idfs ****************")
+         (write-vectors)
+         (display "******* Milestone 4 : Finished writing doc-vectors **************")
+         (display "***************** Process completed successfully ****************")))
+
+;; With a helper, produces a list of dictionary terms.
+(define (write-terms)
+  (write-file "Exports/terms.txt" (write-terms-helper (dictionary-terms) "")))
 
 ;; With a helper, produces a list of dictionary terms with their idf values for JavaScript
-(define (write-terms)
-  (write-file "terms.JSON" (write-terms-helper (dictionary-terms) "{")))
+(define (write-term-idfs)
+  (write-file "Exports/idfvals.JSON" (write-term-idfs-helper (dictionary-terms) "{")))
 
 ;; With helpers, produces a JSON object representation of the dictionary for JavaScript
 (define (write-dict)
-  (write-file "data.JSON" (dictionary-to-string (dictionary-terms) "{")))
+  (write-file "Exports/data.JSON" (dictionary-to-string (dictionary-terms) "{")))
 
 ;; With a helper, produces a JSON object representation of the document vectors for JavaScript
 (define (write-vectors)
-  (write-file "vectors.JSON" (vectors-to-string (hash-keys vectors) "{")))
+  (write-file "Exports/vectors.JSON" (vectors-to-string (hash-keys vectors) "{")))
+
+;; With a helper, produces a list of file titles
+(define (write-names)
+  (write-file "Exports/titles.txt" (write-title-helper universe "")))
+
+
+;; Produces a JSON object with dictionary terms and their corresponding idf values
+(define (write-term-idfs-helper lst str)
+(cond
+  [(null? lst) str]
+  [(null? (cdr lst)) (write-term-idfs-helper (cdr lst) (string-append str "\"" (car lst) "\" : " (number->string (idf (car lst))) "}"))]
+  [else  (write-term-idfs-helper (cdr lst) (string-append str "\"" (car lst) "\" : " (number->string (idf (car lst))) ",\n"))]))
 
 ;; Accepts a scheme list of terms and produces a comma separated sequence
 (define (write-terms-helper lst str)
 (cond
   [(null? lst) str]
-  [(null? (cdr lst)) (write-terms-helper (cdr lst) (string-append str "\"" (car lst) "\" : " (number->string (idf (car lst))) "}"))]
-  [else  (write-terms-helper (cdr lst) (string-append str "\"" (car lst) "\" : " (number->string (idf (car lst))) ",\n"))]))
+  [(null? (cdr lst)) (write-terms-helper (cdr lst) (string-append str (car lst)))]
+  [else  (write-terms-helper (cdr lst) (string-append str (car lst) ","))]))
 
+;; Titles
+(define (write-title-helper lst str)
+(cond
+  [(null? lst) str]
+  [(null? (cdr lst)) (write-title-helper (cdr lst) (string-append str (car lst)))]
+  [else  (write-title-helper (cdr lst) (string-append str (car lst) "~"))]))
 
 ;; Produces a string representing JSON object of Dictionary terms
 (define (dictionary-to-string terms str)
@@ -483,3 +506,8 @@
                              (cdr keys)
                              (string-append str "\"" (number->string (car keys)) "\": [" (list-to-string (hash-ref vectors (car keys)) "") "],\n" ))
                             ]))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; AUTO-EXPORT;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; When reading of the files has completed, the (export) procedure is called automatically to write
+; index files
+(export)
