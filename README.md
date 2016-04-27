@@ -24,7 +24,7 @@
         STEP 3 : Copy all the 5 files created by Main.rkt & Spider.rkt to "gui/Index/"
         STEP 4 : Upload everything in the "gui/" directory to a web server
                 
-                Example : http://people.eecs.ku.edu/~cratnapa
+                Example : http://people.eecs.ku.edu/~cratnapa/ir/
                 
         STEP 5 : Open a web browser and SEARCH AWAY...!
 
