@@ -4,7 +4,7 @@
                     (seed '("http://www.example.com" "http://www.another.com")
         
 				The crawl can be started in two ways, there is a free crawl (no domain restriction)
-    		Free crawl  :   (crawl  #no_of_pages)
+				Free crawl  :   (crawl  #no_of_pages)
         
                 There is also a restricted crawl
                         Restricted :    (crawl!  #no_of_pages  "xyz"  "abc.com"  "")
