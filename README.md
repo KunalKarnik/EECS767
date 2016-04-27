@@ -9,3 +9,5 @@
 
     STEP 2 : After building the search engine, queries can be issed with the following command >>
         (search "some words")
+
+Presentation can be found here >> http://prezi.com/a_usug4wmnfy/?utm_campaign=share&utm_medium=copy&rc=ex0share
