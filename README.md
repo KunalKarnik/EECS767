@@ -3,7 +3,7 @@
             
                     (seed '("http://www.example.com" "http://www.another.com")
         
-			The crawl can be started in two ways, there is a free crawl (no domain restriction)
+				The crawl can be started in two ways, there is a free crawl (no domain restriction)
     		Free crawl  :   (crawl  #no_of_pages)
         
                 There is also a restricted crawl
@@ -12,7 +12,7 @@
         
                 After the craw has completed the following files will be created in the "Exports/" directory
                         1. urls.txt
-			2. titles.txt
+				2. titles.txt
                 -----------------------------------
         
         STEP 2 : Run the "main.rkt" file. It will index all the documents and produce the following files in the "Exports/" directory. (may take a while depending on the heaviness & number of pages downloaded. Takes approximately 90 seconds for 100 pages.)
