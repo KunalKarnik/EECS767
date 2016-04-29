@@ -52,20 +52,20 @@
   (crawl-helper limit "" "" ""))
 
 ;; Crawl with restriction
-(define (crawl! limit restriction restriction2 baser)
-  (crawl-helper limit restriction restriction2 baser))
+(define (crawl! limit restriction restriction2)
+  (crawl-helper limit restriction restriction2))
 
 
 ;; Crawl with exception handling
-(define (crawl-helper limit restriction restriction2 baser)
+(define (crawl-helper limit restriction restriction2)
   (with-handlers ([exn:fail? (lambda (exn)
                                (displayln (string-append "Error : " (exn-message exn)))
                                (displayln "Skipping this page & continuing.\n")
-                               (crawl-helper limit restriction restriction2 baser))])
-    (fetch limit restriction restriction2 baser)))
+                               (crawl-helper limit restriction restriction2))])
+    (fetch limit restriction restriction2)))
 
 ;; Begins crawling the seeded URLs
-(define (fetch limit restriction restriction2 baser)
+(define (fetch limit restriction restriction2)
   (if (< (unbox page-count) limit)
       (if (full?)
           (local [(define url (pop))
@@ -100,9 +100,9 @@
                                         (if (equal? 1 (hash-ref downloaded-pages (unbox title-holder) [(lambda() 1)]))
                                             (orphan)
                                             (hash-ref downloaded-pages (unbox title-holder)))))
-                    (extract-urls (read-content page) restriction restriction2 url baser))
+                    (extract-urls (read-content page) restriction restriction2 url))
                 (set-box! page-count (- (unbox page-count) 1 )))
-              (begin (set-box! page-count (+ 1 (unbox page-count))) (fetch limit restriction restriction2 baser))))
+              (begin (set-box! page-count (+ 1 (unbox page-count))) (fetch limit restriction restriction2))))
           (begin
             (write-file "./Exports/urls.txt" (unbox url-list))
             (write-file "./Exports/titles.txt" (unbox title-list))
@@ -150,7 +150,7 @@
    [else (begin (set-box! title-holder (string-append (unbox title-holder) (string-append (car lst) " "))) (title-read (cdr lst) (+ 1 counter)))]))
 
 ;; Extracts URLs from a list of tokens
-(define (extract-urls lst restriction restriction2 parent baser)
+(define (extract-urls lst restriction restriction2 parent)
   (cond
     [(null? lst) "Finished searching document."]
     [(and (url? (car lst)) (not (null? (cdr (tokenize-string (remove-spaces (car lst)) #\" #\'))))) (local [(define url (car (cdr (tokenize-string (remove-spaces (car lst)) #\" #\'))))]
@@ -158,19 +158,19 @@
                                                        (if (valid? url restriction restriction2)
                                                            (begin
                                                              (if(not (string-contains? url "http"))
-                                                                (set-box! temp-url (patch parent url baser))
+                                                                (set-box! temp-url (patch parent url))
                                                                 (set-box! temp-url url))
                                                               (if(not (crawled? (unbox temp-url)))
                                                                  (begin (push (unbox temp-url)) ; Add it to the frontier
                                                                         (remember (unbox temp-url) (unbox title-holder))) ; Remember as already seen with current title as the parent
                                                                  (set-box! title-holder (unbox title-holder)))) ;; This is a useless statement
                                                            (set-box! title-holder (unbox title-holder)))     ;; This is a useless statement
-                                                       (extract-urls (cdr lst) restriction restriction2 parent baser)))]
-    [else (extract-urls (cdr lst) restriction restriction2 parent baser)]))
+                                                       (extract-urls (cdr lst) restriction restriction2 parent)))]
+    [else (extract-urls (cdr lst) restriction restriction2 parent)]))
 
 
 ;;Adds the current URL as the prefix before sending to frontier
-(define (patch parent child baser)
+(define (patch parent child)
       (string-append "http://www.imdb.com" child))
 
 ;; Returns true if the string is contains a url
