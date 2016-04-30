@@ -1,7 +1,9 @@
 var state="macro";
 var none_blank= false;
-var vectors, terms, idf_values, titles, urls, results, featured, showcase;
+var vectors, terms, idf_values, titles, urls, results, featured, showcase, query, new_vector;
 var res_desc=[];
+var query_vect = [];
+var relevant_docs= [];
 
 $.ajaxPrefilter( function (options) {
 		  if (options.crossDomain && jQuery.support.cors) {
@@ -23,21 +25,6 @@ var get_meta=function(location){
 								temp=temp.replace(/ +/g, ' ');
 								extract=temp.substring(start+9, temp.length);
 								extract=extract.replace('" />', "");
-								/*var temp_elem = document.createElement('temp');
-								document.getElementById("secret").appendChild(temp_elem);
-								var temp= document.getElementsByTagName("temp");
-								alert(temp.length);
-								temp[0].innerText = extract;
-								metas = temp[0].getElementsByTagName('meta');
-								alert(metas.length);
-								for(var i=0; i<metas.length; i++){
-									if(metas[i].getAttribute("name")=="description"){
-										alert(metas[i].getAttribute("content"));
-										description_holder=metas[i].getAttribute("content");
-										//.replace(/<\/?[^>]+(>|$)/g, "");;
-										description_holder+='\n';
-									}
-								}*/
 								description_holder+=extract.replace(/<\/?[^>]+(>|$)/g, "");
 								res_desc.push({url:location, desc:description_holder});
 							}else{
@@ -93,14 +80,16 @@ var init = function(keycode_value){
 			document.getElementById("results").innerHTML='<span style="font-size:85%;"><i>Press Enter to Search Away..!</i></span>';
 			if(keycode_value==13){
 				res_desc=[];
+				relevant_docs=[];
 				document.getElementById("results").innerHTML='';
 				// Run a document search and show regular results
-				results=filter(sort_similarities(get_similarities(document.getElementById('searchbox_mini').value)));
+				query = normalize(vectorize(document.getElementById('searchbox_mini').value));
+				results=filter(sort_similarities(get_similarities(query)));
 				if(results.length==0){
 					document.getElementById("results").innerHTML+= "<br><br><span style='font-size:120%'>Your query - <strong>"+document.getElementById('searchbox_mini').value+"</strong> - did not return any results.";
 					document.getElementById("results").innerHTML+= "<br><br><p>Suggestions:<ul><li>Is everything spelled correctly?</li><li>Could you try different/more general keywords?</li></ul></p></span>"
 
-				}else if(results.length>=10){
+				}/*else if(results.length>=10){
 					document.getElementById("results").innerHTML+='<div id="featured" style="width:180%;background-color: #F7F8E0;border-radius:5px;padding-left: 15px;padding-right: 15px;padding-top: 15px;padding-bottom: 0px; "></div>';
 					for(i=0; i<(Math.min(10, results.length)); i++){
 						
@@ -118,23 +107,18 @@ var init = function(keycode_value){
 						get_meta(urls[results[i].docId-1]);
 						document.getElementById(loc).innerHTML+= "<hr>";
 					}
-				}else{
-					for(i=0; i<(Math.min(10, results.length)); i++){
-						
-						var description_holder= urls[results[i].docId-1].replace(/[^a-z\d\s]+/gi, "");
-						var m = document.createElement('p');
-						m.setAttribute("id", description_holder);
-
-
-						document.getElementById("results").innerHTML+= 
-						"<span style='font-size:120%'><strong><a href='"+urls[results[i].docId-1]+"' target='_blank'>"+ titles[results[i].docId-1]+"</strong></a></span>";
-						document.getElementById("results").innerHTML+="<br><span style='color:#04B431;font-size:100%'>"+urls[results[i].docId-1]+"</span><br>";
-						document.getElementById("results").appendChild(m);
-						get_meta(urls[results[i].docId-1]);
-						document.getElementById("results").innerHTML+= "<hr>";
-					}
+				}*/else{
+					print_results();
 				}
-				$(function() {
+				meta_delay();
+				document.getElementById("results").innerHTML+= "<br><br><br><br>";
+			}
+	}
+	
+}
+
+var meta_delay= function(){
+	$(function() {
 				    var intervalID = setInterval(function() {
 				        desc_printer(document.getElementById('searchbox_mini').value);
 				    }, 300);
@@ -142,30 +126,78 @@ var init = function(keycode_value){
 				        clearInterval(intervalID);
 				    }, 5000);
 				});
-				document.getElementById("results").innerHTML+= "<br><br><br><br>";
-			}
+}
+var print_results=function(){
+	for(i=0; i<results.length; i++){						
+						var description_holder= urls[results[i].docId-1].replace(/[^a-z\d\s]+/gi, "");
+						var m = document.createElement('p');
+						m.setAttribute("id", description_holder);
+
+						document.getElementById("results").innerHTML+= 
+						"<span style='font-size:120%'><strong><a href='"+urls[results[i].docId-1]+"' target='_blank'>"+ titles[results[i].docId-1]+"</strong></a></span>";
+						document.getElementById("results").innerHTML+="<span style='font-size:70%;'><a style='color:#04B45F' href='#' onClick='add_rel("+i+")'>Relevant</a>&nbsp;<a style='color:#F78181' href='#' onClick='rem_rel("+i+")'>Irelevant</a></span>"
+						document.getElementById("results").innerHTML+="<br><span style='color:#04B431;font-size:100%'>"+urls[results[i].docId-1]+"</span><br>";
+						document.getElementById("results").appendChild(m);
+						get_meta(urls[results[i].docId-1]);
+						document.getElementById("results").innerHTML+= "<hr>";
+					}
+
+}
+
+var add_rel= function (x){
+	var exists = relevant_docs.indexOf(results[x]);
+	if(exists == -1){
+		relevant_docs.push(results[x]);
 	}
-	
+	relevance_print();
+}
+
+var rem_rel= function (x){
+	var exists = relevant_docs.indexOf(results[x]);
+	if(exists != -1){
+		relevant_docs.splice(exists, 1);
+	}
+	relevance_print();
+}
+
+var relevance_print= function(){
+	if (relevant_docs.length > 0){
+		var new_state="<div class='alert alert-danger'>";
+		for(var i=0; i<relevant_docs.length; i++){
+			new_state= new_state+relevant_docs[i].docTitle+" is relevant.<br/>";
+		}
+		new_state+="</div>";
+		document.getElementById("relevant").innerHTML="<div class='row'><a class='btn btn-success btn-sm' style='float:right' onClick='refine_search()'>Refine Search</a></div>";
+		document.getElementById("relevant").innerHTML+=new_state;
+	}else {
+		document.getElementById("relevant").innerHTML="";
+	}
+}
+var refine_search= function(){
+	if(relevant_docs.length > 0){
+		res_desc=[];
+		new_vector=[];
+		document.getElementById("relevant").innerHTML="<div class='alert alert-success'>Calculating...</div>";
+		document.getElementById("results").innerHTML='';
+		
+			for(var i=0; i<query.length; i++){
+				new_vector.push(query[i]+(0.5*relevant_docs[0].vect[i]));
+			}
+		results=filter(sort_similarities(get_similarities(normalize(new_vector))));
+		document.getElementById("relevant").innerHTML="";
+		relevant_docs=[];
+		print_results();
+		meta_delay();
+	}
 }
 
 var desc_printer= function(qr){
 	var arr= res_desc;
 	var query_words =tokenize_query(qr.toLowerCase());
-	for (var i=0; i<arr.length; i++)
-	{
+	for (var i=0; i<arr.length; i++){
 		var p =document.getElementById(arr[i].url.replace(/[^a-z\d\s]+/gi, ""));
 		var orig_string= arr[i].desc;
 		var description= highlighter(orig_string, query_words);
-			/*for(var j=0; j<query_words.length; j++){
-				if(str.indexOf(query_words[j])!=-1){
-					var before= orig_string.slice(0, str.indexOf(query_words[j]));
-					var after=orig_string.slice(str.indexOf(query_words[j])+query_words[j].length);
-					var printer= before+'<span style="color:black; font-weight: bold;">'+orig_string.substring(str.indexOf(query_words[j]), str.indexOf(query_words[j])+query_words[j].length)+'</span>'+after;	
-					orig_string= printer;
-				}
-			}*/
-
-
 		p.innerHTML='<p style="color:#A4A4A4">'+description+"... </p><br>";
 	}
 }
@@ -194,7 +226,7 @@ var filter=function(arr){
 	
 var vectorize=function(str){
 	var query_words =tokenize_query(str.toLowerCase());
-	var query_vect = [];
+	query_vect = [];
 	for (var i=0; i<terms.length; i++) query_vect.push(0);
 	for(var i=0; i<query_words.length; i++){
 		if(terms.indexOf(query_words[i]) != -1){
@@ -222,8 +254,8 @@ var get_length=function(vect){
 	return Math.sqrt(accumulator);
 }
 
-var get_similarities=function(str){
-	var query_vect = normalize(vectorize(str));	
+var get_similarities=function(normalized_vect){
+	var query_vect = normalized_vect;	
 	var similarity_records=[];
 
 	// calculate similarity between query and each vector
@@ -233,7 +265,7 @@ var get_similarities=function(str){
 		for(var j=0; j<vectors[i].length; j++){
 			similarity+= query_vect[j]*vectors[i][j];
 		}
-		similarity_records.push({docId:i,sim:similarity});
+		similarity_records.push({docId:i,sim:similarity,vect:vectors[i],docTitle:titles[i-1]});
 	}
 	return similarity_records;
 }
