@@ -1,0 +1,100 @@
+<html>
+<head>
+	<title>Express Search</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<script src="js/bootstrap.min.js"></script>
+	<style type="text/css">
+	.search_nav {
+		background-color:#0B6138;
+		border-radius: 20px;
+	}
+	.search_nav:hover {
+    
+    	background-color:#04B404;
+		border-radius: 20px;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div style="position:fixed; bottom:5%; right:2%; width: 350px;">
+			<h4>Created by</h4>
+			<a href="https://github.com/chinmay-ratnaparkhi" target="_blank">
+				<div class="alert alert-danger">
+					<img src="chinmay.jpg" style="width: 50px;border-radius: 5px;float: left;margin-right: 20px;">
+					<strong>Chinmay Ratnaparkhi</strong><br>Computer Science, KU.
+				</div>
+			</a>
+			<a href="https://github.com/KunalKarnik" target="_blank">
+				<div class="alert alert-danger">
+					<img src="kunal.jpg" style="width: 50px;border-radius: 5px;float: left;margin-right: 20px;">
+					<strong>Kunal Karnik</strong><br>Computer Science, KU.
+				</div>
+			</a>
+		</div>
+			<div class="row">&nbsp;</div>
+			<div class="row">&nbsp;</div>
+			<div class="jumbotron" style="width: 70%;margin: auto;">
+				<h1>Search away... </h1>
+				<div class="row" style="padding: 20px;">
+					<div class="col-lg-4">
+						<a href="http://people.eecs.ku.edu/~cratnapa/ir/reg/" style="color:white;">
+							<div class="search_nav" >
+								<center>
+									<img src="search.gif" style="padding: 10px;height: 100px;">
+									<h3 style="padding-bottom: 20px;margin-bottom: 10px">Plain Search</h3>
+								</center>
+						</div>
+						</a>
+					</div>
+					<div class="col-lg-4">
+						<a href="http://people.eecs.ku.edu/~cratnapa/ir/rel/" style="color:white;">
+							<div class="search_nav">
+								<center>
+									<img src="feedback.gif" style="padding: 10px;height: 100px;">
+									<h3 style="padding-bottom: 20px;margin-bottom: 10px">Rel Feedback</h3>
+								</center>
+							</div>
+						</a>
+					</div>
+					<div class="col-lg-4">
+						<a href="http://people.eecs.ku.edu/~cratnapa/ir/rel/" style="color:white;">
+							<div class="search_nav" >
+								<center>
+									<img src="proximity.gif" style="padding: 10px;height: 100px;">
+									<h3 style="padding-bottom: 20px;margin-bottom: 10px">Proximity</h3>
+								</center>
+							</div>
+						</a>
+					</div>
+				</div>
+	</div>	
+	
+	</div>
+	<nav class="navbar navbar-inverse" style="position: fixed;bottom: 0px; height: 50px;width: 110%;padding: 0px;margin: 0px;">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Search Away</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="http://people.eecs.ku.edu/~cratnapa/ir/">Home</a></li>
+            <li><a href="http://people.eecs.ku.edu/~cratnapa/ir/reg/">Plain Search</a></li>
+            <li><a href="http://people.eecs.ku.edu/~cratnapa/ir/rel/">Search with Feedback</a></li>
+            <li><a href="http://people.eecs.ku.edu/~cratnapa/ir/rel/">Proximity Search</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+      <div id="secret" style="display: none;"></div>
+    </nav>
+</body>
+</html>

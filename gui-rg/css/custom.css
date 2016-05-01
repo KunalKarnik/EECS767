@@ -1,0 +1,12 @@
+.jumbotron{background: #F2FBEF}
+	input[type=text] 
+	{
+		width: 30%;
+		font-size: 120%; 
+		display: block;
+		-webkit-transition: width .35s ease-in-out;
+		transition: width .35s ease-in-out;
+		border:none;
+		border-bottom: solid;
+	}
+	input[type=text]:focus {outline-width: 0;width:100%; font-size: 120%;}!important}
